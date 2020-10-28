@@ -73,8 +73,8 @@ function zkontrolovat(event) {
 
 
 <div class={vysledek}>
-
-	<h1>Učíme se s profesorem Nickem!</h1>
+	<h1>Nickster</h1>
+	<h3>Učíme se s profesorem Nickem!</h3>
 	<p>Zbýva {ucimeSeSlovicka.length} slov. Počet chyb: {chyby}</p>
 
 	<div class="hvezdicky">
@@ -92,8 +92,6 @@ function zkontrolovat(event) {
 	{#if ucimeSeSlovicka.length == 0} 
 
 		<p>	Hotovo! Všechno už umíš.</p>
-
-
 
 		{#each naucenaSlovicka as {nj, cj, poznamka} }
 			<div>{cj} : {nj} {#if poznamka}({poznamka}){/if}</div>
