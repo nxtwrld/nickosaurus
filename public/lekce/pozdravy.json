@@ -1,0 +1,10 @@
+[
+    { "nj": "Hallo", "cj": "Ahoj", "poznamka": "při setkání" },
+    { "nj": "Tschüs", "cj": "Ahoj", "poznamka": "při loučení" },
+    { "nj": "Guten Tag", "cj": "Dobrý den" },
+    { "nj": "Guten Morgen", "cj": "Dobré ráno" },
+    { "nj": "Guten Abend", "cj": "Dobrý večer" },
+    { "nj": "Gute Nacht", "cj": "Dobrou noc" },
+    { "nj": "Auf Wiedersehen", "cj": "Na shledanou" },
+    { "nj": "Grüß Gott", "cj": "Pozdrav pánbuh" }
+]
