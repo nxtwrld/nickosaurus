@@ -1,49 +1,35 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+#Nickster
 
----
+Aplikace na procvičování slovíček z němčiny a především k naučení mé osmileté dcery programování.
 
-# svelte app
+Kód je napsán ve svelte a používá Speech API pro opakování slovíček
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
+## Jak začít
 
 
-## Get started
-
-Install the dependencies...
 
 ```bash
-cd svelte-app
+cd nickster
 npm install
 ```
 
-...then start [Rollup](https://rollupjs.org):
+...a pak aplikaci spustit ve vývojovém režimu:
 
 ```bash
 npm run dev
 ```
 
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+ Aplikace by měla běžet, takže v prohlížeči otevřeme adresu [localhost:5000](http://localhost:5000).
 
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
 
-If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
 
-## Building and running in production mode
-
-To create an optimised version of the app:
+Pro vytvoření produkčního kód spustíme
 
 ```bash
 npm run build
 ```
+
+a tady jsou zbylé instrukce pro svelte aplikace:
 
 You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
 
