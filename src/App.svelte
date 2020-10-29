@@ -1,135 +1,56 @@
 <script>
-import Input from './Input.svelte';
-import Typo from './TypoFix.svelte';
-import MultipleChoice from './MultipleChoice.svelte';
-import { nemecky } from './povidac.js';
-import { nahodneCislo } from './sdileneFunkce.js';
-       
+import Lekce from './Lesson.svelte';
 
+let lekce = null;
 
-let komponenty = [
-	Input,
-	Typo,
-	MultipleChoice
-];
+let seznamLekci = {};
 
-let aktivniKomponenta = 2;
-
-let chyby = 0;
-let slovicka = [];
-let ucimeSeSlovicka = [];
-let naucenaSlovicka = [];
-let i = 0;
-let odpoved = '';
-let vysledek = null;
-
-// nahrajeme slovicka ze souboru v adresari /public/lekce/
-fetch('lekce/pozdravy.json')
+fetch('lekce.json')
 	.then(r => r.json())
-	.then(lekce => {
-		slovicka = [...lekce];
-		ucimeSeSlovicka = [...lekce];
-		i = nahodneCislo(ucimeSeSlovicka.length);
-	});
+	.then(odpoved => {
+		console.log(odpoved);
+		seznamLekci = odpoved;
+	})
 
+window.addEventListener('hashchange', () => {
+	loadLocation(location.hash)
+})
 
+loadLocation(location.hash);
 
-function zkontrolovat(event) {
-	// v jakem jazyce kontrolujeme odpoved?
-	let jazyk = event.detail || 'nj';
+function loadLocation(hash) {
 
-	if (odpoved == '') return;
-	// zadane slovo odpovida  vzoru (kontrolovat mala pismena a odstranit prebytecne mezery)
-	if (odpoved.trim().toLowerCase() == ucimeSeSlovicka[i][jazyk].toLowerCase()) {
-		vysledek = 'skvele';
-		// precti spravne slovicko
-		nemecky(ucimeSeSlovicka[i].nj).then(function(){ 
-			// pridame slovo do naucenych slovicek
-			naucenaSlovicka = [...naucenaSlovicka, ucimeSeSlovicka[i]];
-			// odebereme ho ze slovnicku
-			ucimeSeSlovicka = [...ucimeSeSlovicka.slice(0, i), ...ucimeSeSlovicka.slice(i+1)];
-			// vybereme nahodne dalsi slovicko
-			i = nahodneCislo(ucimeSeSlovicka.length);
-			// vymazeme vysledek
-			vysledek = null;
-			odpoved = '';
-		});
+	hash =  hash.replace('#', '');
+	if (hash != '') lekce = hash;
+	else lekce = null;
 
-	} else {
-		chyby = chyby+1;
-		vysledek = 'chyba';
-		// precti spravne slovicko
-		nemecky(ucimeSeSlovicka[i].nj).then(function(){ 
-			// pak jdeme na jine nahodne slovicko
-			i = nahodneCislo(ucimeSeSlovicka.length);
-			vysledek = null;
-			odpoved = '';
-		});
-	}
-	aktivniKomponenta = nahodneCislo(komponenty.length);
 }
 
 </script>
 
 
-<div class={vysledek}>
-	<h1>Nickster</h1>
+<div>
+	<h1>Nickosuarus</h1>
 	<h3>Učíme se s profesorem Nickem!</h3>
-	<p>Zbýva {ucimeSeSlovicka.length} slov. Počet chyb: {chyby}</p>
 
-	<div class="hvezdicky">
-		{#if chyby == 0}
-			★★★
-		{:else if chyby == 1}
-			★★☆
-		{:else if chyby == 2}
-			★☆☆
-		{:else}
-			☆☆☆
-		{/if}
-	</div>
 
-	{#if ucimeSeSlovicka.length == 0} 
 
-		<p>	Hotovo! Všechno už umíš.</p>
-
-		{#each naucenaSlovicka as {nj, cj, poznamka} }
-			<div>{cj} : {nj} {#if poznamka}({poznamka}){/if}</div>
-		{/each}
-
-		
-
+	{#if lekce}
+		<Lekce lekce={lekce} />
 	{:else}
 
-		{#if vysledek}
-			{#if vysledek == 'skvele'}
-				Skvělé
-			{:else}
-				Chyba
-			{/if}
-			: {ucimeSeSlovicka[i].nj}
-		{:else}
-			<svelte:component this={komponenty[aktivniKomponenta]} slovicko={ucimeSeSlovicka[i]} bind:odpoved={odpoved} on:zkontrolovat={zkontrolovat} slovicka={slovicka} />
-			<div>
-				<button on:click={zkontrolovat}>Zkontrolovat</button>
-			</div>
+		{#each Object.keys(seznamLekci) as jazyk}
+			{#each Object.keys(seznamLekci[jazyk]) as lekce}
+			<a href="#{jazyk}/{lekce}">{seznamLekci[jazyk][lekce].nazev}</a><br/>
+			{/each}
 
-		{/if}
+		{/each}
+
 
 	{/if}
 </div>
 
 
 <style>
-	.chyba {
- 		background: red;
-        color: white;
-	 }
-	.skvele {
-  		background: green;
-	}
-	.hvezdicky {
-		font-size: 3rem;
-		color: rgb(255, 208, 0);
-	}
+	
 </style>

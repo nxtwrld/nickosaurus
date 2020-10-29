@@ -1,0 +1,13 @@
+{
+    "nazev": "Grüße",
+    "slovicka": [
+        { "cj": "Hallo", "mj": "Ahoj", "poznamka": "při setkání" },
+        { "cj": "Tschüs", "mj": "Ahoj", "poznamka": "při loučení" },
+        { "cj": "Guten Tag", "mj": "Dobrý den" },
+        { "cj": "Guten Morgen", "mj": "Dobré ráno" },
+        { "cj": "Guten Abend", "mj": "Dobrý večer" },
+        { "cj": "Gute Nacht", "mj": "Dobrou noc" },
+        { "cj": "Auf Wiedersehen", "mj": "Na shledanou" },
+        { "cj": "Grüß Gott", "mj": "Pozdrav pánbuh" }
+    ]
+}

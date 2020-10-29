@@ -35,13 +35,13 @@ function prohod (pole) {
 
 onMount(() => {
     input.focus();
-    nemecky(slovicko.nj);
-    odpoved = udelejChybu(slovicko.nj);
+    nemecky(slovicko.cj);
+    odpoved = udelejChybu(slovicko.cj);
 });
 
 
 </script>
 
 <p>Oprav:</p>
-{slovicko.cj} {#if slovicko.poznamka}({slovicko.poznamka}){/if}
-<input bind:this={input} type="text" bind:value={odpoved}  on:click={() => dispatch('zkontrolovat')} on:keyup|preventDefault={zmacknulEnter} />
+{slovicko.mj} {#if slovicko.poznamka}({slovicko.poznamka}){/if}
+<input bind:this={input} type="text" bind:value={odpoved} on:keyup|preventDefault={zmacknulEnter} />

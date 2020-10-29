@@ -9,8 +9,8 @@ const dispatch = createEventDispatcher();
 export let slovicka;
 export let slovicko;
 export let odpoved;
-export let jazykZadani = nahodneCislo(2) ? 'cj' : 'nj';
-export let jazykMoznosti = (jazykZadani == 'cj') ? 'nj' : 'cj';
+export let jazykZadani = nahodneCislo(2) ? 'mj' : 'cj';
+export let jazykMoznosti = (jazykZadani == 'mj') ? 'cj' : 'mj';
 
 $: moznosti = vyberDalsiSlova(slovicka, slovicko);
 
@@ -29,8 +29,8 @@ function vyberDalsiSlova(slovicka, slovicko) {
 }
 onMount(() => {
 
-    if (jazykZadani == 'cj') cesky(slovicko.cj);
-    else nemecky(slovicko.nj);
+    if (jazykZadani == 'mj') cesky(slovicko.mj);
+    else nemecky(slovicko.cj);
 
 });
 

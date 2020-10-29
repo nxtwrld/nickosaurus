@@ -15,7 +15,7 @@ function zmacknulEnter (event) {
 }
 
 onMount(() => {
-    cesky(slovicko.cj);
+    cesky(slovicko.mj);
     input.focus();
 });
 
@@ -23,5 +23,5 @@ onMount(() => {
 
 <p>Přelož:</p>
 
-{slovicko.cj} {#if slovicko.poznamka}({slovicko.poznamka}){/if}
-<input bind:this={input} type="text" bind:value={odpoved}  on:click={() => dispatch('zkontrolovat')} on:keyup|preventDefault={zmacknulEnter} />
+{slovicko.mj} {#if slovicko.poznamka}({slovicko.poznamka}){/if}
+<input bind:this={input} type="text" bind:value={odpoved}  on:keyup|preventDefault={zmacknulEnter} />

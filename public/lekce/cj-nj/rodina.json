@@ -1,0 +1,15 @@
+{
+    "nazev": "Familie",
+    "slovicka": [
+        { "cj": "Mutter", "mj": "máma", "clen": "die" },
+        { "cj": "Vater", "mj": "táta", "clen": "der" },
+        { "cj": "Schwester", "mj": "sestra", "clen": "die" },
+        { "cj": "Bruder", "mj": "bracha", "clen": "der" },
+        { "cj": "Großmutter", "mj": "babička", "clen": "die" },
+        { "cj": "Großvater", "mj": "děda", "clen": "der" },
+        { "cj": "Oma", "mj": "babička", "clen": "die" },
+        { "cj": "Opa", "mj": "děda", "clen": "der" },
+        { "cj": "Hund", "mj": "pes", "clen": "der" },
+        { "cj": "Katze", "mj": "kočka", "clen": "die" }
+    ]
+}
