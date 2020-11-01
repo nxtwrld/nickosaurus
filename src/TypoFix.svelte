@@ -34,14 +34,19 @@ function prohod (pole) {
 
 
 onMount(() => {
-    input.focus();
     nemecky(slovicko.cj);
     odpoved = udelejChybu(slovicko.cj);
+    input.focus();
 });
 
 
 </script>
 
-<p>Oprav:</p>
-{slovicko.mj} {#if slovicko.poznamka}({slovicko.poznamka}){/if}
-<input bind:this={input} type="text" bind:value={odpoved} on:keyup|preventDefault={zmacknulEnter} />
+<div class="zadani">
+    <p class="slovo">{slovicko.mj} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
+</div>
+<div class="odpoved">
+    <p class="instrukce">Oprav:</p>
+    <input bind:this={input} type="text" bind:value={odpoved} on:keyup|preventDefault={zmacknulEnter} />
+</div>
+

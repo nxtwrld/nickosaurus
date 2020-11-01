@@ -1,17 +1,17 @@
 <script>
 import Input from './Input.svelte';
-import Typo from './TypoFix.svelte';
 import MultipleChoice from './MultipleChoice.svelte';
+import LetterOrder from './LetterOrder.svelte';
 import { nemecky } from './povidac.js';
 import { nahodneCislo } from './sdileneFunkce.js';
        
-
-
 let komponenty = [
 	Input,
-	Typo,
-	MultipleChoice
+    MultipleChoice,
+    LetterOrder
 ];
+
+export let pocetHvezd = 3;
 
 let aktivniKomponenta = 2;
 
@@ -37,56 +37,66 @@ fetch('lekce/'+lekce+'.json')
 function zkontrolovat(event) {
 	// v jakem jazyce kontrolujeme odpoved?
 	let jazyk = event.detail || 'cj';
+    let precteno;
 
 	if (odpoved == '') return;
 	// zadane slovo odpovida  vzoru (kontrolovat mala pismena a odstranit prebytecne mezery)
 	if (odpoved.trim().toLowerCase() == ucimeSeSlovicka[i][jazyk].toLowerCase()) {
+
 		vysledek = 'skvele';
 		// precti spravne slovicko
-		nemecky(ucimeSeSlovicka[i].cj).then(function(){ 
+		precteno = nemecky(ucimeSeSlovicka[i].cj).then(function(){ 
 			// pridame slovo do naucenych slovicek
 			naucenaSlovicka = [...naucenaSlovicka, ucimeSeSlovicka[i]];
 			// odebereme ho ze slovnicku
 			ucimeSeSlovicka = [...ucimeSeSlovicka.slice(0, i), ...ucimeSeSlovicka.slice(i+1)];
-			// vybereme nahodne dalsi slovicko
-			i = nahodneCislo(ucimeSeSlovicka.length);
-			// vymazeme vysledek
-			vysledek = null;
-			odpoved = '';
+            return;
 		});
 
 	} else {
 		chyby = chyby+1;
 		vysledek = 'chyba';
 		// precti spravne slovicko
-		nemecky(ucimeSeSlovicka[i].cj).then(function(){ 
-			// pak jdeme na jine nahodne slovicko
-			i = nahodneCislo(ucimeSeSlovicka.length);
-			vysledek = null;
-			odpoved = '';
-		});
-	}
-	aktivniKomponenta = nahodneCislo(komponenty.length);
+		precteno = nemecky(ucimeSeSlovicka[i].cj);
+    }
+    precteno.then(() => {
+        // vymazeme vysledek
+        vysledek = null;
+        // vybereme nahodne dalsi slovicko
+        i = nahodneCislo(ucimeSeSlovicka.length-1);
+        // vymazeme odpoved
+        odpoved = '';
+        // vybrat komponentu
+        dalsiKomponenta();
+    });
+
 }
+
+function dalsiKomponenta () {
+    if (aktivniKomponenta + 1 < komponenty.length)  aktivniKomponenta++;
+    else aktivniKomponenta = 0;
+}
+
 
 </script>
 
 
-<div class={vysledek}>
-	<p>Zbýva {ucimeSeSlovicka.length} slov. Počet chyb: {chyby}</p>
+<div class="lekce -{vysledek}">
+
 
 	<div class="hvezdicky">
-		{#if chyby == 0}
-			★★★
-		{:else if chyby == 1}
-			★★☆
-		{:else if chyby == 2}
-			★☆☆
-		{:else}
-			☆☆☆
-		{/if}
+        {#each Array(pocetHvezd) as hvezda, poradi}
+            {#if pocetHvezd - chyby >= poradi+1}
+                <span class="zlata">★</span>
+            {:else}
+                <span class="ztracena">☆</span>
+            {/if}
+        {/each}
 	</div>
+	<p>Zbýva {ucimeSeSlovicka.length} slov. Počet chyb: {chyby}</p>
+</div>
 
+<div class="otazka">
 	{#if ucimeSeSlovicka.length == 0} 
 
 		<p>	Hotovo! Všechno už umíš.</p>
@@ -98,36 +108,22 @@ function zkontrolovat(event) {
 		
 
 	{:else}
-
-		{#if vysledek}
-			{#if vysledek == 'skvele'}
-				Skvělé
-			{:else}
-				Chyba
-			{/if}
-			: {ucimeSeSlovicka[i].cj}
-		{:else}
-			<svelte:component this={komponenty[aktivniKomponenta]} slovicko={ucimeSeSlovicka[i]} bind:odpoved={odpoved} on:zkontrolovat={zkontrolovat} slovicka={slovicka} />
-			<div>
-				<button on:click={zkontrolovat}>Zkontrolovat</button>
-			</div>
-
-		{/if}
-
+        <div class="-{vysledek}">
+		    <svelte:component this={komponenty[aktivniKomponenta]} slovicko={ucimeSeSlovicka[i]} bind:odpoved={odpoved} on:zkontrolovat={zkontrolovat} slovicka={slovicka} />
+            {#if vysledek != null}
+                <div class="odpoved -spravna">
+                    <div>
+                        {#if vysledek == 'skvele'}
+                            <p class="instrukce">Skvělé</p>
+                        {:else}
+                            <p class="instrukce">Chyba</p>
+                        {/if}
+                        <p class="slovo">{ucimeSeSlovicka[i].cj}</p>
+                    </div>
+                </div>
+            {/if}
+        </div>
 	{/if}
 </div>
 
 
-<style>
-	.chyba {
- 		background: red;
-        color: white;
-	 }
-	.skvele {
-  		background: green;
-	}
-	.hvezdicky {
-		font-size: 3rem;
-		color: rgb(255, 208, 0);
-	}
-</style>

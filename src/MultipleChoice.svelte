@@ -36,9 +36,15 @@ onMount(() => {
 
 </script>
 
-<p>Vyber:</p>
-{slovicko[jazykZadani]} {#if slovicko.poznamka}({slovicko.poznamka}){/if}
+<div class="zadani">
+    <p class="slovo">{slovicko[jazykZadani]} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
+</div>
+<div class="odpoved">
+    <div>
+        <p class="instrukce">Vyber:</p>
+        {#each moznosti as moznost}
+        <button class="button" on:click={ () => { odpoved = moznost; dispatch('zkontrolovat', jazykMoznosti) }}>{moznost}</button>
+        {/each}
+    </div>
+</div>
 
-{#each moznosti as moznost}
-<button on:click={ () => { odpoved = moznost; dispatch('zkontrolovat', jazykMoznosti) }}>{moznost}</button>
-{/each}

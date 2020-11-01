@@ -5,14 +5,14 @@
         { "cj": "eins", "mj": "jedna" },
         { "cj": "zwei", "mj": "dva" },
         { "cj": "drei", "mj": "tři" },
-        { "cj": "vier", "mj": "čtři" },
+        { "cj": "vier", "mj": "čtyři" },
         { "cj": "fünf", "mj": "pět" },
         { "cj": "sechs", "mj": "šest" },
-        { "cj": "sieben", "mj": "sedum" },
-        { "cj": "acht", "mj": "osum" },
+        { "cj": "sieben", "mj": "sedm" },
+        { "cj": "acht", "mj": "osm" },
         { "cj": "neun", "mj": "devět" },
         { "cj": "zehn", "mj": "deset" },
-        { "cj": "elf", "mj": "jedenact" },
-        { "cj": "zwelf", "mj": "dvanact" }
+        { "cj": "elf", "mj": "jedenáct" },
+        { "cj": "zwölf", "mj": "dvanáct" }
     ]
 }

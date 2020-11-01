@@ -29,16 +29,17 @@ function loadLocation(hash) {
 </script>
 
 
-<div>
-	<h1>Nickosuarus</h1>
-	<h3>Učíme se s profesorem Nickem!</h3>
+<div class="aplikace">
+	<div class="hlavicka">
+		<h1>Nickosuarus</h1>
+		<h3>Učíme se s profesorem Nickem!</h3>
+	</div>
 
-
-
+	<div class="obsah">
 	{#if lekce}
 		<Lekce lekce={lekce} />
 	{:else}
-
+		
 		{#each Object.keys(seznamLekci) as jazyk}
 			{#each Object.keys(seznamLekci[jazyk]) as lekce}
 			<a href="#{jazyk}/{lekce}">{seznamLekci[jazyk][lekce].nazev}</a><br/>
@@ -48,6 +49,7 @@ function loadLocation(hash) {
 
 
 	{/if}
+	</div>
 </div>
 
 

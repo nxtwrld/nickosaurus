@@ -3,15 +3,21 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
     color: #333;
-    background: #50bfeb;
+    background: linear-gradient(-45deg, rgba(91, 159, 180, 1.00), rgba(200, 252, 239, 1.00));
     margin: 0;
     padding: 8px;
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 12px;
 }
 
 a {
@@ -65,4 +71,136 @@ button:not(:disabled):active {
 
 button:focus {
     border-color: #666;
+}
+
+.aplikace {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hlavicka {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 15vh;
+}
+
+.obsah {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 15vh;
+    bottom: 0;
+}
+
+.lekce {
+    height: 10vh;
+    text-align: center;
+    font-size: 2vh;
+}
+
+.hvezdicky {
+    font-size: 6vh;
+    line-height: 4vh;
+}
+
+.hvezdicky .zlata {
+    color: rgba(241, 174, 100, 1.00);
+    text-shadow: 2px 2px 0px rgba(72, 147, 176, 1.00);
+}
+
+.hvezdicky .ztracena {
+    color: rgba(72, 147, 176, 0.3);
+}
+
+.otazka {
+    height: 75vh;
+    position: relative;
+}
+
+.zadani,
+.odpoved {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: calc( 50% - 3vh);
+    text-align: center;
+    margin: 0 2vw;
+    background: rgba(72, 148, 177, 0.5);
+    border-radius: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.zadani {
+    top: 0;
+}
+
+.odpoved {
+    top: 50%;
+    background-color: rgba(242, 179, 103, 1.00);
+}
+
+.zadani .slovo {
+    color: #FFF;
+    font-size: 6vh;
+}
+
+.odpoved .instrukce {
+    flex-basis: 100%;
+}
+
+.odpoved input {
+    border: 0;
+    background: transparent;
+    outline: 0;
+    text-align: center;
+    font-size: 5vh;
+    border-bottom: 1px solid #FFF;
+    color: #FFF;
+}
+
+.odpoved .pismeno,
+.odpoved button {
+    margin: 0 1vw;
+    padding: 1vh 3vw;
+    border-radius: 2vh;
+    font-size: 5vh;
+    background: rgba(255, 255, 255, .5);
+    border: 0;
+    box-shadow: 5px 5px 0px 0px rgba(120, 55, 65, .5);
+    transition: box-shadow .3s ease-out;
+    cursor: pointer;
+}
+
+.odpoved button:hover {
+    box-shadow: 2px 2px 0px 4px rgba(120, 55, 65, .5);
+}
+
+.-skvele .odpoved,
+.-chyba .odpoved {
+    opacity: 0;
+}
+
+.-skvele .odpoved.-spravna,
+.-chyba .odpoved.-spravna {
+    opacity: 1
+}
+
+.-skvele .odpoved.-spravna {
+    background: rgba(180, 233, 228, 1.00);
+    color: rgba(9, 58, 133, 1.00);
+}
+
+.-chyba .odpoved.-spravna {
+    background: #F00;
+    color: #FFF;
+}
+
+.odpoved.-spravna .slovo {
+    font-size: 6vh;
 }
