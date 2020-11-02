@@ -1,6 +1,6 @@
 <script>
 import { onMount, createEventDispatcher } from 'svelte';
-import { rozhazetPole } from './sdileneFunkce.js';
+import { rozhazetPole, vyberPrvni, porovnejVarianty } from './sdileneFunkce.js';
 import { nemecky } from './povidac.js';
 import { dndzone } from 'svelte-dnd-action';
 import { flip } from 'svelte/animate';
@@ -17,9 +17,6 @@ let items = rozdelNaPismena(odpoved);
 let dropTargetStyle;
 
 
-function zmacknulEnter (event) {
-    if (event.code == 'Enter') dispatch('zkontrolovat');
-}
 
 function udelejChybu (slovo) {
     // pojdme to slovo nejak pozkazit
@@ -39,8 +36,8 @@ function rozdelNaPismena (odpoved) {
 }
 
 onMount(() => {
-    nemecky(slovicko.cj);
-    odpoved = udelejChybu(slovicko.cj);
+    nemecky(vyberPrvni(slovicko.cj));
+    odpoved = udelejChybu(vyberPrvni(slovicko.cj));
     items = rozdelNaPismena(odpoved);
 });
 
@@ -53,7 +50,7 @@ function handleSort(e) {
     }
     odpoved = items.map(item => item.title).join('');
     // uz je to slovo spravne?
-    if (odpoved == slovicko.cj) {
+    if (porovnejVarianty(slovicko.cj, odpoved)) {
         // ano - pojdme se posunout dal
         casovac = setTimeout(() => {
             dispatch('zkontrolovat');
@@ -64,7 +61,7 @@ function handleSort(e) {
 </script>
 
 <div class="zadani">
-    <p class="slovo">{slovicko.mj} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
+    <p class="slovo">{vyberPrvni(slovicko.mj)} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
 </div>
 <div class="odpoved">
     <div>
@@ -81,8 +78,9 @@ function handleSort(e) {
 .serazovacka {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: auto;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .pismeno {
     outline: 0 !important;

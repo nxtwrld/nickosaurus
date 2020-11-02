@@ -3,7 +3,7 @@ import Input from './Input.svelte';
 import MultipleChoice from './MultipleChoice.svelte';
 import LetterOrder from './LetterOrder.svelte';
 import { nemecky } from './povidac.js';
-import { nahodneCislo } from './sdileneFunkce.js';
+import { nahodneCislo, vyberPrvni, porovnejVarianty } from './sdileneFunkce.js';
        
 let komponenty = [
 	Input,
@@ -12,7 +12,7 @@ let komponenty = [
 ];
 
 export let pocetHvezd = 3;
-
+.2
 let aktivniKomponenta = 2;
 
 let chyby = 0;
@@ -23,6 +23,7 @@ let i = 0;
 let odpoved = '';
 let vysledek = null;
 export let lekce = null;
+
 // nahrajeme slovicka ze souboru v adresari /public/lekce/
 fetch('lekce/'+lekce+'.json')
 	.then(r => r.json())
@@ -32,6 +33,17 @@ fetch('lekce/'+lekce+'.json')
 		i = nahodneCislo(ucimeSeSlovicka.length);
 	});
 
+function vyberPouziteSlovo(odpoved, slovo) {
+    if (Array.isArray(slovo)) {
+        let nalezeno = slovo.filter(slovo => {
+            return odpoved.trim().toLowerCase() == slovo.toLowerCase();
+        });
+        return (nalezeno.length > 0) ? nalezeno : slovo[0];
+    } else {
+        return slovo;
+    }
+
+}
 
 
 function zkontrolovat(event) {
@@ -41,11 +53,11 @@ function zkontrolovat(event) {
 
 	if (odpoved == '') return;
 	// zadane slovo odpovida  vzoru (kontrolovat mala pismena a odstranit prebytecne mezery)
-	if (odpoved.trim().toLowerCase() == ucimeSeSlovicka[i][jazyk].toLowerCase()) {
+	if (porovnejVarianty(ucimeSeSlovicka[i][jazyk], odpoved)) {
 
 		vysledek = 'skvele';
 		// precti spravne slovicko
-		precteno = nemecky(ucimeSeSlovicka[i].cj).then(function(){ 
+		precteno = nemecky(vyberPouziteSlovo(odpoved, ucimeSeSlovicka[i][jazyk])).then(function(){ 
 			// pridame slovo do naucenych slovicek
 			naucenaSlovicka = [...naucenaSlovicka, ucimeSeSlovicka[i]];
 			// odebereme ho ze slovnicku
@@ -57,7 +69,7 @@ function zkontrolovat(event) {
 		chyby = chyby+1;
 		vysledek = 'chyba';
 		// precti spravne slovicko
-		precteno = nemecky(ucimeSeSlovicka[i].cj);
+		precteno = nemecky(vyberPrvni(ucimeSeSlovicka[i].cj));
     }
     precteno.then(() => {
         // vymazeme vysledek
@@ -107,7 +119,7 @@ function dalsiKomponenta () {
 
 		
 
-	{:else}
+	{:else if ucimeSeSlovicka[i]}
         <div class="-{vysledek}">
 		    <svelte:component this={komponenty[aktivniKomponenta]} slovicko={ucimeSeSlovicka[i]} bind:odpoved={odpoved} on:zkontrolovat={zkontrolovat} slovicka={slovicka} />
             {#if vysledek != null}
@@ -115,10 +127,12 @@ function dalsiKomponenta () {
                     <div>
                         {#if vysledek == 'skvele'}
                             <p class="instrukce">Skvělé</p>
+                            <p class="slovo">{vyberPouziteSlovo(odpoved, ucimeSeSlovicka[i].cj)}</p>
                         {:else}
                             <p class="instrukce">Chyba</p>
+                            <p class="slovo">{vyberPrvni(ucimeSeSlovicka[i].cj)}</p>
                         {/if}
-                        <p class="slovo">{ucimeSeSlovicka[i].cj}</p>
+
                     </div>
                 </div>
             {/if}

@@ -1,6 +1,7 @@
 <script>
 
 import { onMount, createEventDispatcher } from 'svelte';
+import { vyberPrvni } from './sdileneFunkce.js';
 import { cesky } from './povidac.js';
 
 const dispatch = createEventDispatcher();
@@ -15,7 +16,7 @@ function zmacknulEnter (event) {
 }
 
 onMount(() => {
-    cesky(slovicko.mj);
+    cesky(vyberPrvni(slovicko.mj));
     input.focus();
 });
 

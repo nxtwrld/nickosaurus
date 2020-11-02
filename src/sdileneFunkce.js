@@ -23,3 +23,20 @@ export function rozhazetPole(pole) {
 
     return pole;
 }
+
+export function vyberPrvni(slovo) {
+    return (Array.isArray(slovo)) ? slovo[0] : slovo;
+}
+
+
+
+export function porovnejVarianty(zadani, odpoved) {
+    odpoved = odpoved.trim().toLowerCase()
+    if (Array.isArray(zadani)) {
+        return zadani.filter(slovo => {
+            return odpoved == slovo.toLowerCase();
+        }).length > 0;
+    } else {
+        return odpoved == zadani.toLowerCase();
+    }
+}

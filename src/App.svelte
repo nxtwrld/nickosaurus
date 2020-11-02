@@ -39,14 +39,14 @@ function loadLocation(hash) {
 	{#if lekce}
 		<Lekce lekce={lekce} />
 	{:else}
-		
+		<div class="seznam">
 		{#each Object.keys(seznamLekci) as jazyk}
 			{#each Object.keys(seznamLekci[jazyk]) as lekce}
-			<a href="#{jazyk}/{lekce}">{seznamLekci[jazyk][lekce].nazev}</a><br/>
+			<a href="#{jazyk}/{lekce}" class="">{seznamLekci[jazyk][lekce].nazev}</a><br/>
 			{/each}
 
 		{/each}
-
+		</div>
 
 	{/if}
 	</div>
