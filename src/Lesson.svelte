@@ -88,7 +88,9 @@ function dalsiKomponenta () {
     if (aktivniKomponenta + 1 < komponenty.length)  aktivniKomponenta++;
     else aktivniKomponenta = 0;
 }
-
+function hlavniStranka () {
+    location.hash = "#";
+}
 
 </script>
 
@@ -110,14 +112,23 @@ function dalsiKomponenta () {
 
 <div class="otazka">
 	{#if ucimeSeSlovicka.length == 0} 
+        <div class="lekce-dokoncena">
+            <div>
+                <h2>Hotovo! Všechno už umíš.</h2>
+                <table>
+                {#each naucenaSlovicka as {cj, mj, poznamka} }
+                    <tr class="slovicko">
+                        <td><span class="mj">{mj}</span></td>
+                        <td> : </td>
+                        <td><span class="cj">{vyberPrvni(cj)}</span> {#if poznamka}({poznamka}){/if}</td>
+                    </tr>
+                {/each}
+                </table>
+                <button on:click={hlavniStranka}>Vyber si další lekci</button>
+            </div>
 
-		<p>	Hotovo! Všechno už umíš.</p>
 
-		{#each naucenaSlovicka as {cj, mj, poznamka} }
-			<div>{mj} : {cj} {#if poznamka}({poznamka}){/if}</div>
-		{/each}
-
-		
+		</div>
 
 	{:else if ucimeSeSlovicka[i]}
         <div class="-{vysledek}">

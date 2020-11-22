@@ -1,0 +1,19 @@
+{
+    "nazev": "Farben",
+    "slovicka": [
+        { "cj": "Farbe", "mj": "barva" },
+        { "cj": "Farben", "mj": "barvy" },
+        { "cj": "rosa", "mj": "růžová" },
+        { "cj": "rot", "mj": "červená" },
+        { "cj": "orange", "mj": "oranžová" },
+        { "cj": "gelb", "mj": "žlutá" },
+        { "cj": "grün", "mj": "zelená" },
+        { "cj": "blau", "mj": "modrá" },
+        { "cj": "braun", "mj": "hnědá" },
+        { "cj": "schwarz", "mj": "černá" },
+        { "cj": "weiß", "mj": "bílá" },
+        { "cj": "grau", "mj": "šedá" },
+        { "cj": "lila", "mj": "fialová" },
+        { "cj": "beige", "mj": "béžová" }
+    ]
+}

@@ -81,6 +81,7 @@ function handleSort(e) {
     align-items: auto;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 0 5vw;
 }
 .pismeno {
     outline: 0 !important;

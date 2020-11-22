@@ -1,5 +1,6 @@
 <script>
 import Lekce from './Lesson.svelte';
+import Scena from './Scena.svelte';
 
 let lekce = null;
 
@@ -30,10 +31,14 @@ function loadLocation(hash) {
 
 
 <div class="aplikace">
+	<Scena />
+
 	<div class="hlavicka">
 		<h1>Nickosuarus</h1>
 		<h3>Učíme se s profesorem Nickem!</h3>
 	</div>
+
+
 
 	<div class="obsah">
 	{#if lekce}
