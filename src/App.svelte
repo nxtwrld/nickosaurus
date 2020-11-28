@@ -31,10 +31,10 @@ function loadLocation(hash) {
 
 
 <div class="aplikace">
-	<Scena />
+	<Scena pohled={(lekce) ? 'vyuka' : 'obsah' } />
 
 	<div class="hlavicka">
-		<h1>Nickosuarus</h1>
+		<h1>Nick-o-saurus</h1>
 		<h3>Učíme se s profesorem Nickem!</h3>
 	</div>
 

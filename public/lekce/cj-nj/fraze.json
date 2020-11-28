@@ -1,0 +1,18 @@
+{
+    "nazev": "Phrase",
+    "slovicka": [
+        { "cj": ["da", "hier"], "mj": ["tady", "zde"] },
+        { "cj": ["hier", "da"], "mj": ["zde", "tady"] },
+        { "cj": "dort", "mj": "tam" },
+        { "cj": "danke", "mj": ["děkuji", "díky", "dík"] },
+        { "cj": "Ich bin", "mj": "já jsem" },
+        { "cj": "das ist meine", "mj": ["to je moje", "to je mé"] },
+        { "cj": "zu Hause", "mj": "doma" },
+        { "cj": "Wer ist denn das da?", "mj": ["kdopak je to tu?", "kdo je tu?", "kdopak tu je?", "kdo tu je?", "kdo je tady?"] },
+        { "cj": "jetzt", "mj": "teď" },
+        { "cj": "im Nu", "mj": ["v okamžiku", "hned"] },
+        { "cj": "antworte", "mj": "odpověz" },
+        { "cj": "Ich heiße", "mj": "Jmenuji se" },
+        { "cj": "Wie heißt du?", "mj": ["Jak se jmenuješ?", "Jaké je tvé jméno?"] }
+    ]
+}

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 200">
+    <defs>
+        <style>.cls-1{fill:url(#linear-gradient);}.cls-2{fill:#fff;}.cls-3{fill:#56a4c1;}.cls-4{fill:#6fd1ef;}.cls-5{fill:url(#linear-gradient-2);}</style>
+        <linearGradient id="linear-gradient" x1="1000" y1="115.18" x2="1000" y2="72.19" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#97e2ff"/>
+            <stop offset="1" stop-color="#378299"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-2" x1="1000" y1="166.74" x2="1000" y2="115.18" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+            <stop offset="1" stop-color="#e89f69"/>
+        </linearGradient>
+    </defs>
+    <g id="more">
+        <rect class="cls-1" y="72.19" width="2000" height="42.99"/>
+        <polygon class="cls-2" points="69.31 88.64 477.92 82.14 610.12 88.64 299.45 88.64 69.31 88.64"/>
+        <polygon class="cls-2" points="480.12 96.68 782.86 96.68 556.79 101.08 480.12 96.68"/>
+    </g>
+    <g id="hory">
+        <polygon class="cls-3" points="0 72.19 2000 72.19 2000 9.69 1901.3 31.96 1813.75 13.73 1657.8 38.72 1576.59 0 1482.27 33.02 1413.66 0 1367.47 30.25 1291.19 20.23 1247.31 39.19 1167.6 10.11 1097.93 36.74 1049.62 0 1010.29 43.82 938.38 19.1 858.61 49.44 802.43 21.35 757.46 40.02 683.33 16.85 635.08 38.46 531.64 0 479.96 36.74 426.02 24.72 358.61 31.96 300.18 17.98 212.54 44.94 130.52 19.1 64.22 36.74 0 10.11 0 72.19"/>
+        <polygon class="cls-4" points="1293.16 21.39 1265.24 35.37 1308.58 42.53 1293.16 21.39"/>
+        <polygon class="cls-4" points="1133.64 59.33 1167.6 10.11 1111.22 42.96 1133.64 59.33"/>
+        <polygon class="cls-4" points="1059.58 28.16 1050.59 0 1007.38 59.33 1059.58 28.16"/>
+        <polygon class="cls-4" points="1709.36 63.45 1820.36 18.85 1664.41 43.83 1709.36 63.45"/>
+        <polygon class="cls-4" points="1901.3 31.96 1986.98 36.74 1960.54 18.68 1901.3 31.96"/>
+        <polygon class="cls-4" points="912.18 55.31 939.28 21.24 885.09 58.18 912.18 55.31"/>
+        <polygon class="cls-4" points="1587.07 32.59 1576.9 4.77 1503.74 30.38 1587.07 32.59"/>
+        <polygon class="cls-4" points="161.42 36.7 130.57 26.98 69.31 43.28 161.42 36.7"/>
+        <polygon class="cls-4" points="223.76 47.93 301.43 24.35 232.54 54.78 223.76 47.93"/>
+        <polygon class="cls-4" points="383.37 45.89 441.77 36.13 425.15 30.98 383.37 45.89"/>
+        <polygon class="cls-4" points="520.88 51.16 529.43 10.49 488.26 39.71 520.88 51.16"/>
+        <polygon class="cls-4" points="666.04 50.12 688.23 20.14 643.42 40.2 666.04 50.12"/>
+        <polygon class="cls-4" points="825.6 36.53 803.78 24.35 734.38 54.7 825.6 36.53"/>
+    </g>
+    <g id="plaz">
+        <rect class="cls-5" y="115.18" width="2000" height="51.56"/>
+    </g>
+</svg>

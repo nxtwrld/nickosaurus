@@ -4,6 +4,7 @@ import { onMount, createEventDispatcher } from 'svelte';
 import { cesky, nemecky } from './povidac.js';
 import { nahodneCislo, rozhazetPole, vyberPrvni } from './sdileneFunkce.js';
 
+
 const dispatch = createEventDispatcher();
 
 export let slovicka;
@@ -35,16 +36,16 @@ onMount(() => {
 });
 
 </script>
-
-<div class="zadani">
-    <p class="slovo">{vyberPrvni(slovicko[jazykZadani])} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
-</div>
-<div class="odpoved">
-    <div>
-        <p class="instrukce">Vyber:</p>
-        {#each moznosti as moznost}
-        <button class="button" on:click={ () => { odpoved = moznost; dispatch('zkontrolovat', jazykMoznosti) }}>{moznost}</button>
-        {/each}
+    <div class="zadani">
+        <p class="slovo">{vyberPrvni(slovicko[jazykZadani])} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
     </div>
-</div>
-
+    <div class="odpoved">
+        <div>
+            <p class="instrukce">Vyber:</p>
+            {#each moznosti as moznost}
+            <button class="button {(odpoved == moznost) ? '-vybrane' : ''}" on:click={ () => { odpoved = moznost;}}>{moznost}</button>
+            {/each}
+            <div class="zalom"></div>
+            <button class="zkontrolovat" on:click={() =>  dispatch('zkontrolovat', jazykMoznosti) }>Zkontrolovat</button>
+        </div>
+    </div>

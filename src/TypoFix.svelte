@@ -2,6 +2,7 @@
 import { onMount, createEventDispatcher } from 'svelte';
 import { nahodneCislo } from './sdileneFunkce.js';
 import { nemecky } from './povidac.js';
+import { vyberPrvni } from './sdileneFunkce.js';
 
 const dispatch = createEventDispatcher();
 
@@ -16,13 +17,23 @@ function zmacknulEnter (event) {
 
 function udelejChybu (slovo) {
     // tady se musi to slovo nejak zkazit
-    
-    return prohod(slovo.split('')).join('');
+    if (slovo.indexOf('ß') > -1) {
+        return slovo.replace('ß', 's');
+    } else if (slovo.indexOf('tt') > -1) {
+        return slovo.replace('tt', 't');
+    } else if (slovo.indexOf('ei') > -1) {
+        return slovo.replace('ei', 'ie');
+    } else if (slovo.indexOf('ie') > -1) {
+        return slovo.replace('ie', 'ei');
+    } else {
+        console.log(slovo);
+        return prohod(slovo.split('')).join('');
+    }
 }
 
 function prohod (pole) {
     let index1 = nahodneCislo(pole.length-2);
-    let index2 = nahodneCislo(pole.length-2);
+    let index2 = index1+1;
     
     if (pole[index1] == ' ' || pole[index2] == ' ' || pole[index1] == pole[index2]) return prohod(pole);
 
@@ -34,8 +45,8 @@ function prohod (pole) {
 
 
 onMount(() => {
-    nemecky(slovicko.cj);
-    odpoved = udelejChybu(slovicko.cj);
+    nemecky(vyberPrvni(slovicko.cj));
+    odpoved = udelejChybu(vyberPrvni(slovicko.cj));
     input.focus();
 });
 
@@ -43,10 +54,12 @@ onMount(() => {
 </script>
 
 <div class="zadani">
-    <p class="slovo">{slovicko.mj} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
+    <p class="slovo">{vyberPrvni(slovicko.mj)} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
 </div>
 <div class="odpoved">
     <p class="instrukce">Oprav:</p>
     <input bind:this={input} type="text" bind:value={odpoved} on:keyup|preventDefault={zmacknulEnter} />
+    <div class="zalom"></div>
+    <button class="zkontrolovat" on:click={() => dispatch('zkontrolovat')}>Zkontrolovat</button>
 </div>
 

@@ -4,6 +4,7 @@ import { onMount, createEventDispatcher } from 'svelte';
 import { vyberPrvni } from './sdileneFunkce.js';
 import { cesky } from './povidac.js';
 
+
 const dispatch = createEventDispatcher();
 
 export let slovicko;
@@ -22,14 +23,17 @@ onMount(() => {
 
 </script>
 
-<div class="zadani">
-    <p class="slovo">{slovicko.mj} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
-</div>
-<div class="odpoved">
-    <div>
-        <p class="instrtukce">Přelož:</p>
-        <input bind:this={input} type="text" bind:value={odpoved}  on:keyup|preventDefault={zmacknulEnter} />
+    <div class="zadani">
+        <p class="slovo">{vyberPrvni(slovicko.mj)} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
     </div>
-</div>
+    <div class="odpoved">
+        <div>
+            <p class="instrtukce">Přelož:</p>
+            <input bind:this={input} type="text" bind:value={odpoved}  on:keyup|preventDefault={zmacknulEnter} />
+            <div class="zalom"></div>
+            <button class="zkontrolovat" on:click={() => dispatch('zkontrolovat')}>Zkontrolovat</button>
+        </div>
+    </div>
+
 
     

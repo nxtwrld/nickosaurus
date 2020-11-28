@@ -6,6 +6,9 @@
     "cisla": {
       "nazev": "Zahlen"
     },
+    "fraze": {
+      "nazev": "Phrase"
+    },
     "pozdravy": {
       "nazev": "Grüße"
     },

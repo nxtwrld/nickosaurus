@@ -1,9 +1,15 @@
+/**
+ * Vraci nahodne cislo od 0 do maxima
+ * @param {integer} max 
+ */
 export function nahodneCislo(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-
-
+/**
+ * Nahodne rozhazi prvky pole
+ * @param {array} pole 
+ */
 export function rozhazetPole(pole) {
     let soucasnyIndex = pole.length,
         docasnaHodnota, nahodnyIndex;
@@ -24,19 +30,37 @@ export function rozhazetPole(pole) {
     return pole;
 }
 
+/**
+ * V pripade pole vrati prvni prvek, jinak vraci vlozeny parametr
+ * @param {string|array} slovo 
+ */
 export function vyberPrvni(slovo) {
     return (Array.isArray(slovo)) ? slovo[0] : slovo;
 }
 
+/**
+ * Odstrani zbytecne interpunkcni znaky
+ * @param {string} slovo 
+ */
+export function odstranZbytecneZnaky(slovo) {
+    let zbytecneZnaky = '?!.,'.split();
+    return zbytecneZnaky.reduce(function(slovo, znak) {
+        return slovo.replace(znak, '');
+    }, slovo);
+}
 
-
+/**
+ *  Porovna odpoved se zadanim, pripadne polem zadani
+ * @param {string} zadani 
+ * @param {string} odpoved 
+ */
 export function porovnejVarianty(zadani, odpoved) {
-    odpoved = odpoved.trim().toLowerCase()
+    odpoved = odstranZbytecneZnaky(odpoved.trim().toLowerCase());
     if (Array.isArray(zadani)) {
         return zadani.filter(slovo => {
-            return odpoved == slovo.toLowerCase();
+            return odpoved == odstranZbytecneZnaky(slovo.toLowerCase());
         }).length > 0;
     } else {
-        return odpoved == zadani.toLowerCase();
+        return odpoved == odstranZbytecneZnaky(zadani.toLowerCase());
     }
 }

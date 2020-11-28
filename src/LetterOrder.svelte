@@ -10,35 +10,47 @@ const dispatch = createEventDispatcher();
 
 export let slovicko;
 export let odpoved;
-
+export let slovicka;
 
 let casovac;
 let items = rozdelNaPismena(odpoved);
 let dropTargetStyle;
+let poSlovech = false;
 
 
-
-function udelejChybu (slovo) {
+function udelejChybu (slovo, poSlovech = false) {
     // pojdme to slovo nejak pozkazit
-    let chybneSlovo = rozhazetPole(slovo.split('')).join('');
-    if (slovo == chybneSlovo) return udelejChybu(slovo);
+    let chybneSlovo = rozhazetPole(slovo.split((poSlovech) ? ' ' : '')).join((poSlovech) ? ' ' : '');
+    if (slovo == chybneSlovo) return udelejChybu(slovo, poSlovech);
     return chybneSlovo;
 }
 
 
-function rozdelNaPismena (odpoved) {
-    return odpoved.split('').map((title, id) => {
-        return {
-            id,
-            title
-        }
-    });
+function rozdelNaPismena (odpoved, slova = false) {
+    if (slova) {
+        return odpoved.split(' ').map((title, id) => {
+            return {
+                id,
+                title
+            }
+        });
+    } else {
+        return odpoved.split('').map((title, id) => {
+            return {
+                id,
+                title
+            }
+        });
+    }
 }
 
 onMount(() => {
-    nemecky(vyberPrvni(slovicko.cj));
-    odpoved = udelejChybu(vyberPrvni(slovicko.cj));
-    items = rozdelNaPismena(odpoved);
+    let aktivniSlovicko = vyberPrvni(slovicko.cj);
+    nemecky(aktivniSlovicko);
+    poSlovech = aktivniSlovicko.split(' ').length > 3;
+
+    odpoved = udelejChybu(aktivniSlovicko, poSlovech);
+    items = rozdelNaPismena(odpoved, poSlovech);
 });
 
 // pismenko bylo prehozeno
@@ -48,33 +60,29 @@ function handleSort(e) {
     dropTargetStyle = {
         outline: 0
     }
-    odpoved = items.map(item => item.title).join('');
-    // uz je to slovo spravne?
-    if (porovnejVarianty(slovicko.cj, odpoved)) {
-        // ano - pojdme se posunout dal
-        casovac = setTimeout(() => {
-            dispatch('zkontrolovat');
-        }, 1000);
-    }
+    odpoved = items.map(item => item.title).join((poSlovech) ? ' ' : '');
 }
 
 </script>
-
-<div class="zadani">
-    <p class="slovo">{vyberPrvni(slovicko.mj)} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
-</div>
-<div class="odpoved">
-    <div>
-        <p class="instrukce">Seřaď písmena:</p>
-        <div class="serazovacka" use:dndzone={{items, flipDurationMs, dropTargetStyle}} on:consider={handleSort} on:finalize={handleSort}>
-            {#each items as item(item.id)}
-                <div class="pismeno" animate:flip={{duration:flipDurationMs}} >{item.title}</div>
-            {/each}
+    <div class="zadani">
+        <p class="slovo">{vyberPrvni(slovicko.mj)} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
+    </div>
+    <div class="odpoved">
+        <div>
+            <p class="instrukce">Seřaď písmena:</p>
+            <div class="serazovacka" use:dndzone={{items, flipDurationMs, dropTargetStyle}} on:consider={handleSort} on:finalize={handleSort}>
+                {#each items as item(item.id)}
+                    <div class="pismeno" animate:flip={{duration:flipDurationMs}} >{item.title}</div>
+                {/each}
+            </div>
+            <div class="zalom"></div>
+            <button class="zkontrolovat" on:click={() => dispatch('zkontrolovat')}>Zkontrolovat</button>
         </div>
     </div>
-</div>
+
 
 <style>
+
 .serazovacka {
     width: 100%;
     display: flex;
@@ -85,6 +93,5 @@ function handleSort(e) {
 }
 .pismeno {
     outline: 0 !important;
-    min-width: 2rem;
 }
 </style>

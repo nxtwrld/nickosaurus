@@ -2,18 +2,23 @@
 import Input from './Input.svelte';
 import MultipleChoice from './MultipleChoice.svelte';
 import LetterOrder from './LetterOrder.svelte';
+import TypoFix from './TypoFix.svelte';
 import { nemecky } from './povidac.js';
 import { nahodneCislo, vyberPrvni, porovnejVarianty } from './sdileneFunkce.js';
-       
+import { prikazy } from './pes';
+import { fly } from 'svelte/transition';
+
 let komponenty = [
 	Input,
     MultipleChoice,
-    LetterOrder
+    LetterOrder,
+    TypoFix
 ];
 
 export let pocetHvezd = 3;
-.2
-let aktivniKomponenta = 2;
+export let lekce = null;
+
+let aktivniKomponenta = 1;
 
 let chyby = 0;
 let slovicka = [];
@@ -22,7 +27,6 @@ let naucenaSlovicka = [];
 let i = 0;
 let odpoved = '';
 let vysledek = null;
-export let lekce = null;
 
 // nahrajeme slovicka ze souboru v adresari /public/lekce/
 fetch('lekce/'+lekce+'.json')
@@ -30,7 +34,7 @@ fetch('lekce/'+lekce+'.json')
 	.then(lekce => {
 		slovicka = [...lekce.slovicka];
 		ucimeSeSlovicka = [...lekce.slovicka];
-		i = nahodneCislo(ucimeSeSlovicka.length);
+        i = nahodneCislo(ucimeSeSlovicka.length);
 	});
 
 function vyberPouziteSlovo(odpoved, slovo) {
@@ -55,17 +59,20 @@ function zkontrolovat(event) {
 	// zadane slovo odpovida  vzoru (kontrolovat mala pismena a odstranit prebytecne mezery)
 	if (porovnejVarianty(ucimeSeSlovicka[i][jazyk], odpoved)) {
 
-		vysledek = 'skvele';
+        vysledek = 'skvele';
+        
+        prikazy.bez();
 		// precti spravne slovicko
-		precteno = nemecky(vyberPouziteSlovo(odpoved, ucimeSeSlovicka[i][jazyk])).then(function(){ 
+		precteno = nemecky(vyberPouziteSlovo(odpoved, ucimeSeSlovicka[i].cj)).then(function(){ 
 			// pridame slovo do naucenych slovicek
 			naucenaSlovicka = [...naucenaSlovicka, ucimeSeSlovicka[i]];
 			// odebereme ho ze slovnicku
-			ucimeSeSlovicka = [...ucimeSeSlovicka.slice(0, i), ...ucimeSeSlovicka.slice(i+1)];
+            ucimeSeSlovicka = [...ucimeSeSlovicka.slice(0, i), ...ucimeSeSlovicka.slice(i+1)];
             return;
 		});
 
 	} else {
+        prikazy.jdi();
 		chyby = chyby+1;
 		vysledek = 'chyba';
 		// precti spravne slovicko
@@ -80,6 +87,7 @@ function zkontrolovat(event) {
         odpoved = '';
         // vybrat komponentu
         dalsiKomponenta();
+        prikazy.sedni();
     });
 
 }
@@ -95,7 +103,7 @@ function hlavniStranka () {
 </script>
 
 
-<div class="lekce -{vysledek}">
+<div class="lekce -{vysledek}"  in:fly="{{ x: window.innerWidth, duration: 2000 }}" out:fly="{{ x: 0-window.innerWidth, duration: 2000 }}">
 
 
 	<div class="hvezdicky">
@@ -110,28 +118,33 @@ function hlavniStranka () {
 	<p>Zbýva {ucimeSeSlovicka.length} slov. Počet chyb: {chyby}</p>
 </div>
 
-<div class="otazka">
+<div class="otazka" in:fly="{{ x: window.innerWidth, duration: 2000 }}" out:fly="{{ x: 0-window.innerWidth, duration: 2000 }}">
 	{#if ucimeSeSlovicka.length == 0} 
         <div class="lekce-dokoncena">
-            <div>
+            <div class="vysledek">
                 <h2>Hotovo! Všechno už umíš.</h2>
+                <button on:click={hlavniStranka}>Vyber si další lekci</button>
+            </div>
+
+            <div class="opakovani">
+            <div class="slovicka-prehled">
                 <table>
                 {#each naucenaSlovicka as {cj, mj, poznamka} }
                     <tr class="slovicko">
-                        <td><span class="mj">{mj}</span></td>
+                        <td><span class="mj">{vyberPrvni(mj)}</span></td>
                         <td> : </td>
                         <td><span class="cj">{vyberPrvni(cj)}</span> {#if poznamka}({poznamka}){/if}</td>
                     </tr>
                 {/each}
                 </table>
-                <button on:click={hlavniStranka}>Vyber si další lekci</button>
+            </div>
             </div>
 
 
 		</div>
 
 	{:else if ucimeSeSlovicka[i]}
-        <div class="-{vysledek}">
+        <div class="uloha -{vysledek}">
 		    <svelte:component this={komponenty[aktivniKomponenta]} slovicko={ucimeSeSlovicka[i]} bind:odpoved={odpoved} on:zkontrolovat={zkontrolovat} slovicka={slovicka} />
             {#if vysledek != null}
                 <div class="odpoved -spravna">
@@ -151,4 +164,8 @@ function hlavniStranka () {
 	{/if}
 </div>
 
-
+<style>
+.slovicka-prehled {
+    column-count: 2;
+}
+</style>

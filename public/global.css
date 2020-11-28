@@ -12,7 +12,7 @@ body {
 
 body {
     color: #333;
-    background: linear-gradient(180deg, rgb(91, 159, 180) 0, rgb(200, 252, 239) 50%, rgb(240, 177, 114) 50%, rgb(255, 205, 144) 100%);
+    background: rgb(155, 205, 225);
     margin: 0;
     padding: 8px;
     box-sizing: border-box;
@@ -94,6 +94,7 @@ button:focus {
     right: 0;
     top: 15vh;
     bottom: 0;
+    pointer-events: none;
 }
 
 .obsah .seznam {
@@ -116,16 +117,18 @@ button:focus {
     justify-content: center;
     font-size: 3vh;
     background-color: rgba(242, 180, 104, 1.00);
-    box-shadow: 5px 5px 0 0 rgba(71, 146, 175, 1.00);
+    box-shadow: 5px 5px 0 0 rgba(0, 0, 0, .3);
     color: rgba(10, 41, 108, 1.00);
     font-weight: bold;
     border-radius: .5rem;
+    pointer-events: all;
 }
 
 .lekce {
     height: 10vh;
     text-align: center;
     font-size: 2vh;
+    pointer-events: all;
 }
 
 .hvezdicky {
@@ -142,21 +145,27 @@ button:focus {
     color: rgba(72, 147, 176, 0.3);
 }
 
+.uloha {
+    height: 100%;
+}
+
 .lekce-dokoncena,
 .otazka {
     height: 75vh;
     position: relative;
+    pointer-events: all;
 }
 
 .zadani,
-.odpoved {
+.odpoved,
+.vysledek,
+.opakovani {
     position: absolute;
     left: 0;
     right: 0;
-    height: calc( 50% - 3vh);
+    height: calc( 50% - 10vh);
     text-align: center;
     margin: 0 2vw;
-    background: rgba(72, 148, 177, 0.5);
     border-radius: 5vh;
     display: flex;
     align-items: center;
@@ -164,22 +173,46 @@ button:focus {
     flex-wrap: wrap;
 }
 
+.zalom {
+    flex-basis: 100%;
+    height: 1rem;
+}
+
+.vysledek {
+    display: block;
+}
+
+.opakovani {
+    top: 55%;
+}
+
+.odpoved .zkontrolovat {
+    flex: 0;
+    color: rgba(9, 58, 133, 1.00);
+    background: rgba(180, 233, 228, 1.00);
+    box-shadow: 5px 5px 0px 0px rgba(9, 58, 133, 1.00);
+}
+
 .zadani {
     top: 0;
 }
 
 .odpoved {
-    top: 50%;
-    background-color: rgba(242, 179, 103, 1.00);
+    top: calc(50% + 5vh);
+    pointer-events: all;
 }
 
 .zadani .slovo {
     color: #FFF;
+    color: rgb(18, 73, 94);
     font-size: 6vh;
 }
 
 .odpoved .instrukce {
     flex-basis: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(120, 55, 65, 1);
 }
 
 .odpoved input {
@@ -207,6 +240,7 @@ button:focus {
     cursor: pointer;
 }
 
+.odpoved button.-vybrane,
 .lekce-dokoncena button:hover,
 .odpoved button:hover {
     box-shadow: 2px 2px 0px 4px rgba(120, 55, 65, .5);
@@ -278,13 +312,55 @@ button:focus {
 
 .scena {
     position: fixed;
+    background: linear-gradient(180deg, rgb(155, 205, 225) 0, rgb(221, 233, 227) 50%, rgb(240, 177, 114) 50%, rgb(255, 205, 144) 100%);
     display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    transition: top 2s ease-out;
+}
+
+.-vyuka.scena {
+    top: 20%;
+}
+
+.krajina {
+    position: absolute;
     top: 50%;
     left: 0;
     right: 0;
-    align-items: center;
-    justify-content: center;
-    transform: translate(0, -50%)
+    transform: translateY(-50%);
+    height: 200px;
+    z-index: -1;
+    transition: height 2s ease-out;
+}
+
+.-vyuka .krajina {
+    height: 80px;
+}
+
+.krajina-hory {
+    width: 100%;
+    height: 33%;
+    background: transparent url(media/krajina.hory.svg) repeat-x;
+    background-size: auto 100%;
+    animation: krajina-hory 50s linear infinite;
+}
+
+.krajina-more {
+    width: 100%;
+    height: 33%;
+    background: rgba(74, 147, 174, 1.00) url(media/krajina.more.svg) repeat-x;
+    background-size: auto 100%;
+    animation: krajina-more 12s linear infinite;
+}
+
+.krajina-plaz {
+    width: 100%;
+    height: 33%;
 }
 
 .pes {
@@ -293,7 +369,25 @@ button:focus {
     height: calc(var(--dog-size) / 2);
     background: transparent url(media/psi.beh.svg) no-repeat;
     background-size: auto 100%;
+    cursor: pointer;
+    pointer-events: all;
+    transition: transform 2s ease-out;
+}
+
+.pes.bez {
+    animation: bez .8s steps(7) infinite;
+}
+
+.pes.jdi {
     animation: jdi .8s steps(7) infinite;
+}
+
+.-vyuka .pes {
+    transform: scale(.4);
+}
+
+.pes.skoc {
+    animation: bez 1s steps(7) infinite, skoc 1s 1 ease-out;
 }
 
 @keyframes jdi {
@@ -305,11 +399,41 @@ button:focus {
     }
 }
 
+@keyframes skoc {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-90px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
 @keyframes bez {
     from {
         background-position: calc(var(--dog-size) * -8);
     }
     to {
         background-position: calc(var(--dog-size) * -15);
+    }
+}
+
+@keyframes krajina-hory {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -2000px;
+    }
+}
+
+@keyframes krajina-more {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -120px 80px;
     }
 }
