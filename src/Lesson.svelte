@@ -64,7 +64,10 @@ function zkontrolovat(event) {
         
         prikazy.bez();
 		// precti spravne slovicko
-		precteno = nemecky(vyberPouziteSlovo(odpoved, ucimeSeSlovicka[i].cj)).then(function(){ 
+		precteno = nemecky(
+            ((ucimeSeSlovicka[i].clen) ? ucimeSeSlovicka[i].clen + ' ' : '') 
+            + vyberPouziteSlovo(odpoved, ucimeSeSlovicka[i].cj)
+            ).then(function(){ 
 			// pridame slovo do naucenych slovicek
 			naucenaSlovicka = [...naucenaSlovicka, ucimeSeSlovicka[i]];
 			// odebereme ho ze slovnicku
@@ -159,10 +162,16 @@ onMount(() => {
                     <div>
                         {#if vysledek == 'skvele'}
                             <p class="instrukce">Skvělé</p>
-                            <p class="slovo">{vyberPouziteSlovo(odpoved, ucimeSeSlovicka[i].cj)}</p>
+                            <p class="slovo">
+                                {#if ucimeSeSlovicka[i].clen}{ucimeSeSlovicka[i].clen}{/if}
+                                {vyberPouziteSlovo(odpoved, ucimeSeSlovicka[i].cj)}
+                            </p>
                         {:else}
                             <p class="instrukce">Chyba</p>
-                            <p class="slovo">{vyberPrvni(ucimeSeSlovicka[i].cj)}</p>
+                            <p class="slovo">
+                                {#if ucimeSeSlovicka[i].clen}{ucimeSeSlovicka[i].clen}{/if}
+                                {vyberPrvni(ucimeSeSlovicka[i].cj)}
+                            </p>
                         {/if}
 
                     </div>

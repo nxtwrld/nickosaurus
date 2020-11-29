@@ -1,0 +1,16 @@
+{
+    "nazev": "Tiere",
+    "slovicka": [
+        { "cj": "Hund", "mj": "pes", "clen": "der" },
+        { "cj": "Katze", "mj": "kočka", "clen": "die" },
+        { "cj": "Maus", "mj": "myš", "clen": "die" },
+        { "cj": "Pferd", "mj": "kůň", "clen": "das" },
+        { "cj": "Kuh", "mj": "kráva", "clen": "die" },
+        { "cj": "Schwein", "mj": "prase", "clen": "das" },
+        { "cj": "Ziege", "mj": "koza", "clen": "die" },
+        { "cj": "Tier", "mj": "zvíře", "clen": "das" },
+        { "cj": "Vogel", "mj": "pták", "clen": "der" },
+        { "cj": "Ente", "mj": "kachna", "clen": "die" },
+        { "cj": "Huhn", "mj": ["kuře", "slepice"], "clen": "das" }
+    ]
+}
