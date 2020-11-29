@@ -1,4 +1,5 @@
 <script>
+import { onMount } from 'svelte';
 import Input from './Input.svelte';
 import MultipleChoice from './MultipleChoice.svelte';
 import LetterOrder from './LetterOrder.svelte';
@@ -18,7 +19,7 @@ let komponenty = [
 export let pocetHvezd = 3;
 export let lekce = null;
 
-let aktivniKomponenta = 1;
+let aktivniKomponenta = 2;
 
 let chyby = 0;
 let slovicka = [];
@@ -97,8 +98,15 @@ function dalsiKomponenta () {
     else aktivniKomponenta = 0;
 }
 function hlavniStranka () {
+    prikazy.jdi();
     location.hash = "#";
 }
+
+
+onMount(() => {
+    setTimeout(() => { prikazy.sedni(); }, 2000);
+});
+
 
 </script>
 

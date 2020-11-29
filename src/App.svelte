@@ -1,6 +1,8 @@
 <script>
+import { onMount } from 'svelte';
 import Lekce from './Lesson.svelte';
 import Scena from './Scena.svelte';
+import { prikazy, typyPrikazu } from './pes';
 
 let lekce = null;
 
@@ -20,12 +22,20 @@ window.addEventListener('hashchange', () => {
 loadLocation(location.hash);
 
 function loadLocation(hash) {
-
+	prikazy.bez();
 	hash =  hash.replace('#', '');
-	if (hash != '') lekce = hash;
-	else lekce = null;
+	if (hash != '') {
+		lekce = hash;
+	} else{
+		lekce = null;
+		setTimeout(() => { prikazy.sedni(); }, 2000);
+	}
 
 }
+
+onMount(() => {
+    setTimeout(() => { prikazy.sedni(); }, 2000);
+});
 
 </script>
 
@@ -33,8 +43,8 @@ function loadLocation(hash) {
 <div class="aplikace">
 	<Scena pohled={(lekce) ? 'vyuka' : 'obsah' } />
 
-	<div class="hlavicka">
-		<h1>Nick-o-saurus</h1>
+	<div class="hlavicka {(lekce) ? '-vyuka' : '-obsah' }">
+		<h1 class="logo">Nick-o-saurus</h1>
 		<h3>Učíme se s profesorem Nickem!</h3>
 	</div>
 

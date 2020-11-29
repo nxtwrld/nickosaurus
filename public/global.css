@@ -88,6 +88,18 @@ button:focus {
     text-align: center;
 }
 
+.hlavicka .logo {
+    background: url('media/nickosaurus.png') no-repeat center;
+    background-size: contain;
+    color: transparent;
+    height: 6rem;
+    transition: height 2s ease-out;
+}
+
+.hlavicka.-vyuka .logo {
+    height: 2rem;
+}
+
 .obsah {
     position: fixed;
     left: 0;
@@ -240,6 +252,12 @@ button:focus {
     cursor: pointer;
 }
 
+.odpoved .pismeno {
+    font-size: 2.5vh;
+    margin: 0 .6vw;
+    padding: 1vh 1.2vw;
+}
+
 .odpoved button.-vybrane,
 .lekce-dokoncena button:hover,
 .odpoved button:hover {
@@ -347,7 +365,21 @@ button:focus {
     height: 33%;
     background: transparent url(media/krajina.hory.svg) repeat-x;
     background-size: auto 100%;
-    animation: krajina-hory 50s linear infinite;
+    animation-name: krajina-hory;
+    animation-duration: 50s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state: paused;
+}
+
+.jdi .krajina-hory {
+    animation-play-state: running;
+    animation-duration: 250s;
+}
+
+.bez .krajina-hory {
+    animation-play-state: running;
+    animation-duration: 50s;
 }
 
 .krajina-more {
@@ -367,19 +399,23 @@ button:focus {
     --dog-size: 25rem;
     width: var(--dog-size);
     height: calc(var(--dog-size) / 2);
-    background: transparent url(media/psi.beh.svg) no-repeat;
+    background: transparent url(media/psi.beh.2.svg) no-repeat;
     background-size: auto 100%;
     cursor: pointer;
     pointer-events: all;
     transition: transform 2s ease-out;
 }
 
-.pes.bez {
+.bez .pes {
     animation: bez .8s steps(7) infinite;
 }
 
-.pes.jdi {
+.jdi .pes {
     animation: jdi .8s steps(7) infinite;
+}
+
+.sedni .pes {
+    background-position: calc(var(--dog-size) * -16);
 }
 
 .-vyuka .pes {

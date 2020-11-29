@@ -1,7 +1,7 @@
 <script>
 
 let pes;
-let pohyb = 'sedni';
+let pohyb = 'bez';
 export let pohled = 'obsah';
 
 function skoc () {
@@ -24,12 +24,12 @@ document.addEventListener('nicku-jdi', () => {
 
 </script>
 
-<div class="scena -{pohled}">
+<div class="scena -{pohled} {pohyb}" >
     <div class="krajina">
         <div class="krajina-hory"></div>
         <div class="krajina-more"></div>
         <div class="krajina-zem"></div>
     </div>
-    <div bind:this={pes} on:click={skoc} class="pes {pohyb}"></div>
+    <div bind:this={pes} on:click={skoc} class="pes"></div>
 
 </div>

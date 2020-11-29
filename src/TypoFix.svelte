@@ -26,7 +26,6 @@ function udelejChybu (slovo) {
     } else if (slovo.indexOf('ie') > -1) {
         return slovo.replace('ie', 'ei');
     } else {
-        console.log(slovo);
         return prohod(slovo.split('')).join('');
     }
 }
