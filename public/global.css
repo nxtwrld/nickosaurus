@@ -221,8 +221,9 @@ button:focus {
 }
 
 .odpoved {
-    top: calc(50% + 5vh);
+    top: calc(50% + 2vh);
     pointer-events: all;
+    height: calc(50% - 30vh);
 }
 
 .zadani .slovo {
