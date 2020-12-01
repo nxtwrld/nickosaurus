@@ -8,6 +8,7 @@ const dispatch = createEventDispatcher();
 
 export let slovicko;
 export let odpoved;
+export let slovicka;
 
 let input;
 
