@@ -15,6 +15,9 @@
     "rodina": {
       "nazev": "Familie"
     },
+    "zajmena": {
+      "nazev": "Pronomen"
+    },
     "zvirata": {
       "nazev": "Tiere"
     }

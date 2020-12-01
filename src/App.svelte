@@ -57,7 +57,7 @@ onMount(() => {
 		<div class="seznam">
 		{#each Object.keys(seznamLekci) as jazyk}
 			{#each Object.keys(seznamLekci[jazyk]) as lekce}
-			<a href="#{jazyk}/{lekce}" class="">{seznamLekci[jazyk][lekce].nazev}</a><br/>
+			<a href="#{jazyk}/{lekce}" class="tlacitko-lekce">{seznamLekci[jazyk][lekce].nazev}</a>
 			{/each}
 
 		{/each}

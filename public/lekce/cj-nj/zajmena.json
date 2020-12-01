@@ -1,0 +1,13 @@
+{
+    "nazev": "Pronomen",
+    "slovicka": [
+        { "cj": "ich", "mj": "já" },
+        { "cj": "du", "mj": "ty" },
+        { "cj": "er", "mj": "on" },
+        { "cj": "sie", "mj": ["ona", "oni"] },
+        { "cj": ["es", "das"], "mj": "to" },
+        { "cj": "wir", "mj": "my" },
+        { "cj": "ihr", "mj": "vy" },
+        { "cj": "sie", "mj": ["oni", "ona"] }
+    ]
+}
