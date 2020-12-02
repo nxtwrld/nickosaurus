@@ -1,0 +1,18 @@
+{
+    "nazev": "Schulbedarf",
+    "czNazev": "Školní potřeby",
+    "slovicka": [
+        { "cj": "Tafel", "mj": "tabule", "clen": "die" },
+        { "cj": "Lampe", "mj": "lampa", "clen": "die" },
+        { "cj": "Kreide", "mj": "křída", "clen": "die" },
+        { "cj": "Tasche", "mj": "taška", "clen": "die" },
+        { "cj": "Puppe", "mj": "panenka", "clen": "die" },
+        { "cj": "Kette", "mj": "řetízek", "clen": "die" },
+        { "cj": "Federtasche", "mj": "penál", "clen": "die" },
+        { "cj": "in der Schule", "mj": "ve škole" },
+        { "cj": "Schere", "mj": "nůžky", "clen": "die" },
+        { "cj": "Mütze", "mj": "kšiltovka", "clen": "die" },
+        { "cj": "Kassette", "mj": "kazeta", "clen": "die" }
+
+    ]
+}

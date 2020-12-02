@@ -20,6 +20,10 @@
       "nazev": "Familie",
       "czNazev": "Rodin"
     },
+    "skolnipotreby": {
+      "nazev": "Schulbedarf",
+      "czNazev": "Školní potřeby"
+    },
     "zajmena": {
       "nazev": "Pronomen",
       "czNazev": "Zájmena"
