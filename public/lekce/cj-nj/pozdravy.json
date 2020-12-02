@@ -9,6 +9,6 @@
         { "cj": "Guten Abend", "mj": "Dobrý večer" },
         { "cj": "Gute Nacht", "mj": "Dobrou noc" },
         { "cj": "Auf Wiedersehen", "mj": "Na shledanou" },
-        { "cj": "Grüß Gott", "mj": "Pozdrav pánbuh" }
+        { "cj": ["Grüß Gott", "Grüss Gott"], "mj": "Pozdrav pánbuh" }
     ]
 }

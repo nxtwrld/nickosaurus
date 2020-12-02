@@ -10,9 +10,11 @@
         { "cj": "Tante", "mj": "teta", "clen": "die" },
         { "cj": "Freund", "mj": "kamarád", "clen": "der" },
         { "cj": "Freundin", "mj": "kamarádka", "clen": "die" },
-        { "cj": ["Großmutter", "Oma"], "mj": "babička", "clen": "die" },
-        { "cj": ["Großvater", "Opa"], "mj": "děda", "clen": "der" },
-        { "cj": ["Oma", "Großmutter"], "mj": "babička", "clen": "die" },
-        { "cj": ["Opa", "Großvater"], "mj": "děda", "clen": "der" }
+        { "cj": ["Großmutter", "Grossmutter"
+                "Oma"
+            ], "mj": "babička", "clen": "die" },
+        { "cj": ["Großvater", "Gorssvater", "Opa"], "mj": "děda", "clen": "der" },
+        { "cj": ["Oma", "Großmutter", "Grossmutter"], "mj": "babička", "clen": "die" },
+        { "cj": ["Opa", "Großvater", "Grossvater"], "mj": "děda", "clen": "der" }
     ]
 }

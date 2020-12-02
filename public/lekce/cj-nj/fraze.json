@@ -13,7 +13,7 @@
         { "cj": "jetzt", "mj": "teď" },
         { "cj": "im Nu", "mj": ["v okamžiku", "hned"] },
         { "cj": "antworte", "mj": "odpověz" },
-        { "cj": "Ich heiße", "mj": "Jmenuji se" },
-        { "cj": "Wie heißt du?", "mj": ["Jak se jmenuješ?", "Jaké je tvé jméno?"] }
+        { "cj": ["Ich heiße", "Ich heisse"], "mj": "Jmenuji se" },
+        { "cj": ["Wie heißt du?", "Wie heisst du?"], "mj": ["Jak se jmenuješ?", "Jaké je tvé jméno?"] }
     ]
 }

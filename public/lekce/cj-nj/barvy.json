@@ -12,7 +12,7 @@
         { "cj": "blau", "mj": "modrá" },
         { "cj": "braun", "mj": "hnědá" },
         { "cj": "schwarz", "mj": "černá" },
-        { "cj": "weiß", "mj": "bílá" },
+        { "cj": ["weiß", "weiss"], "mj": "bílá" },
         { "cj": "grau", "mj": "šedá" },
         { "cj": "lila", "mj": "fialová" },
         { "cj": "beige", "mj": "béžová" }
