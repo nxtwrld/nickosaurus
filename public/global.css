@@ -235,7 +235,7 @@ button:focus {
 .odpoved {
     top: calc(50% + 2vh);
     pointer-events: all;
-    height: calc(50% - 30vh);
+    height: calc(50% - 10vh);
 }
 
 .zadani .slovo {
@@ -274,7 +274,7 @@ button:focus {
     background: rgba(255, 255, 255, .5);
     border: 0;
     box-shadow: 5px 5px 0px 0px rgba(120, 55, 65, .5);
-    transition: box-shadow .3s ease-out;
+    transition: all .3s ease-out;
     cursor: pointer;
 }
 
@@ -286,9 +286,15 @@ button:focus {
 }
 
 .odpoved button.-vybrane,
+.odpoved button.-vybrane:hover {
+    background: rgb(189, 233, 180);
+    box-shadow: 5px 5px 0px 0px rgb(9, 133, 75);
+}
+
 .lekce-dokoncena button:hover,
 .odpoved button:hover {
-    box-shadow: 2px 2px 0px 4px rgba(120, 55, 65, .5);
+    background: rgba(255, 255, 255, .5);
+    box-shadow: 5px 5px 0px 2px rgba(120, 55, 65, .5);
 }
 
 .-skvele .odpoved,

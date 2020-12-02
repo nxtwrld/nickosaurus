@@ -19,7 +19,7 @@ let komponenty = [
 export let pocetHvezd = 3;
 export let lekce = null;
 
-let aktivniKomponenta = 2;
+let aktivniKomponenta = 1;
 
 let chyby = 0;
 let slovicka = [];
@@ -65,7 +65,7 @@ function zkontrolovat(event) {
         prikazy.bez();
 		// precti spravne slovicko
 		precteno = nemecky(
-            ((ucimeSeSlovicka[i].clen) ? ucimeSeSlovicka[i].clen + ' ' : '') 
+            ((ucimeSeSlovicka[i].clen) ? ucimeSeSlovicka[i].clen +' ' : '') 
             + vyberPouziteSlovo(odpoved, ucimeSeSlovicka[i].cj)
             ).then(function(){ 
 			// pridame slovo do naucenych slovicek
