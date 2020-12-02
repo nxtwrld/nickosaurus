@@ -1,5 +1,6 @@
 {
     "nazev": "Phrase",
+    "czNazev": "Fráze",
     "slovicka": [
         { "cj": ["da", "hier"], "mj": ["tady", "zde"] },
         { "cj": ["hier", "da"], "mj": ["zde", "tady"] },

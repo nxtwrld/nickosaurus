@@ -20,7 +20,10 @@ function readDirectory(directoryPath, result = {}) {
             result[file.name] = readDirectory(path.join(directoryPath, file.name), );
         } else {
             var lesson = JSON.parse(fs.readFileSync(path.join(directoryPath, file.name)))
-            result[file.name.replace('.json', '')].nazev = lesson.nazev;
+            result[file.name.replace('.json', '')] = {
+                nazev: lesson.nazev,
+                czNazev: lesson.czNazev
+            }
 
         }
     });

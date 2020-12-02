@@ -1,5 +1,6 @@
 {
     "nazev": "Zahlen",
+    "czNazev": "Čísla",
     "slovicka": [
         { "cj": "null", "mj": "nula" },
         { "cj": "eins", "mj": "jedna" },

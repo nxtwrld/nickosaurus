@@ -1,5 +1,6 @@
 {
     "nazev": "Familie",
+    "czNazev": "Rodin",
     "slovicka": [
         { "cj": "Mutter", "mj": "máma", "clen": "die" },
         { "cj": "Vater", "mj": "táta", "clen": "der" },
@@ -12,8 +13,6 @@
         { "cj": ["Großmutter", "Oma"], "mj": "babička", "clen": "die" },
         { "cj": ["Großvater", "Opa"], "mj": "děda", "clen": "der" },
         { "cj": ["Oma", "Großmutter"], "mj": "babička", "clen": "die" },
-        { "cj": ["Opa", "Großvater"], "mj": "děda", "clen": "der" },
-        { "cj": "Hund", "mj": "pes", "clen": "der" },
-        { "cj": "Katze", "mj": "kočka", "clen": "die" }
+        { "cj": ["Opa", "Großvater"], "mj": "děda", "clen": "der" }
     ]
 }

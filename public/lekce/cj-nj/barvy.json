@@ -1,5 +1,6 @@
 {
     "nazev": "Farben",
+    "czNazev": "Barvy",
     "slovicka": [
         { "cj": "Farbe", "mj": "barva" },
         { "cj": "Farben", "mj": "barvy" },

@@ -1,5 +1,6 @@
 {
     "nazev": "Grüße",
+    "czNazev": "Pozdravy",
     "slovicka": [
         { "cj": "Hallo", "mj": "Ahoj", "poznamka": "při setkání" },
         { "cj": "Tschüs", "mj": "Ahoj", "poznamka": "při loučení" },

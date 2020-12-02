@@ -132,19 +132,31 @@ button:focus {
 }
 
 .obsah .seznam a {
-    display: flex;
+    display: block;
+    text-align: center;
     width: 30%;
     height: 10vh;
     margin: 1vh 1%;
-    align-items: center;
-    justify-content: center;
-    font-size: 3vh;
+    padding: 1.5rem 0 0 0;
+    font-size: 1rem;
     background-color: rgba(242, 180, 104, 1.00);
     box-shadow: 5px 5px 0 0 rgba(0, 0, 0, .3);
-    color: rgba(10, 41, 108, 1.00);
+    color: rgba(44, 19, 0, 1.00);
     font-weight: bold;
     border-radius: .5rem;
     pointer-events: all;
+    text-decoration: none;
+}
+
+.obsah .seznam a:hover {
+    background-color: rgb(228, 146, 46);
+    box-shadow: 5px 5px 0 0 rgba(0, 0, 0, .6);
+    text-decoration: none;
+}
+
+.obsah .seznam a strong {
+    display: block;
+    font-size: 1.3rem;
 }
 
 .lekce {
@@ -270,6 +282,7 @@ button:focus {
     font-size: 2.5vh;
     margin: 0 .6vw;
     padding: 1vh 1.2vw;
+    min-width: 1.4rem;
 }
 
 .odpoved button.-vybrane,
@@ -433,7 +446,7 @@ button:focus {
 }
 
 .-vyuka .pes {
-    transform: scale(.4);
+    transform: scale(.5);
 }
 
 .pes.skoc {

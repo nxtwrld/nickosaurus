@@ -1,9 +1,11 @@
 let voices = window.speechSynthesis.getVoices();
+let Zuzana = voices.filter((v) => (v.lang == 'cs-CZ' && v.name == 'Zuzana'))[0];
+let Anna = voices.filter((v) => (v.lang == 'de-DE' && v.name == 'Anna'))[0];
 const zpozdeni = 1000;
 
 export function nemecky(slovo) {
     let msg = new SpeechSynthesisUtterance();
-    msg.voice = voices[4];
+    msg.voice = Anna;
     msg.text = slovo;
     msg.lang = 'de-DE';
     speechSynthesis.speak(msg);
@@ -24,7 +26,7 @@ export function nemecky(slovo) {
 
 export function cesky(slovo) {
     let msg = new SpeechSynthesisUtterance();
-    msg.voice = voices[47];
+    msg.voice = Zuzana;
     msg.text = slovo;
     msg.lang = 'cs-CZ';
     speechSynthesis.speak(msg);

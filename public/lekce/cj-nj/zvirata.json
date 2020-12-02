@@ -1,5 +1,6 @@
 {
     "nazev": "Tiere",
+    "czNazev": "Zvířata",
     "slovicka": [
         { "cj": "Hund", "mj": "pes", "clen": "der" },
         { "cj": "Katze", "mj": "kočka", "clen": "die" },

@@ -1,25 +1,32 @@
 {
   "cj-nj": {
     "barvy": {
-      "nazev": "Farben"
+      "nazev": "Farben",
+      "czNazev": "Barvy"
     },
     "cisla": {
-      "nazev": "Zahlen"
+      "nazev": "Zahlen",
+      "czNazev": "Čísla"
     },
     "fraze": {
-      "nazev": "Phrase"
+      "nazev": "Phrase",
+      "czNazev": "Fráze"
     },
     "pozdravy": {
-      "nazev": "Grüße"
+      "nazev": "Grüße",
+      "czNazev": "Pozdravy"
     },
     "rodina": {
-      "nazev": "Familie"
+      "nazev": "Familie",
+      "czNazev": "Rodin"
     },
     "zajmena": {
-      "nazev": "Pronomen"
+      "nazev": "Pronomen",
+      "czNazev": "Zájmena"
     },
     "zvirata": {
-      "nazev": "Tiere"
+      "nazev": "Tiere",
+      "czNazev": "Zvířata"
     }
   }
 }

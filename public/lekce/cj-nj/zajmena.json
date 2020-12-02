@@ -1,5 +1,6 @@
 {
     "nazev": "Pronomen",
+    "czNazev": "Zájmena",
     "slovicka": [
         { "cj": "ich", "mj": "já" },
         { "cj": "du", "mj": "ty" },
