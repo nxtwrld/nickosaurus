@@ -30,14 +30,19 @@ function vyberDalsiSlova(slovicka, slovicko) {
 }
 onMount(() => {
 
-    if (jazykZadani == 'mj') cesky(vyberPrvni(slovicko.mj));
-    else nemecky(vyberPrvni(slovicko.cj));
+    precti();
 
 });
 
+function precti() {
+    if (jazykZadani == 'mj') cesky(vyberPrvni(slovicko.mj));
+    else nemecky(vyberPrvni(slovicko.cj));
+}
+
+
 </script>
     <div class="zadani">
-        <p class="slovo">{vyberPrvni(slovicko[jazykZadani])} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
+        <p class="slovo" on:click={precti}>{vyberPrvni(slovicko[jazykZadani])} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
     </div>
     <div class="odpoved">
         <div>

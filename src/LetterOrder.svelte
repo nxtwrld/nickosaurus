@@ -7,6 +7,8 @@ import { flip } from 'svelte/animate';
 
 const flipDurationMs = 200;
 const dispatch = createEventDispatcher();
+const POCET_SLOV = 2;
+
 
 export let slovicko;
 export let odpoved;
@@ -47,7 +49,7 @@ function rozdelNaPismena (odpoved, slova = false) {
 onMount(() => {
     let aktivniSlovicko = vyberPrvni(slovicko.cj);
     nemecky(aktivniSlovicko);
-    poSlovech = aktivniSlovicko.split(' ').length > 3;
+    poSlovech = aktivniSlovicko.split(' ').length > POCET_SLOV;
 
     odpoved = udelejChybu(aktivniSlovicko, poSlovech);
     items = rozdelNaPismena(odpoved, poSlovech);
@@ -63,9 +65,13 @@ function handleSort(e) {
     odpoved = items.map(item => item.title).join((poSlovech) ? ' ' : '');
 }
 
+function precti() {
+    nemecky(aktivniSlovicko);
+}
+
 </script>
     <div class="zadani">
-        <p class="slovo">{vyberPrvni(slovicko.mj)} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
+        <p class="slovo" on:click={precti}>{vyberPrvni(slovicko.mj)} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
     </div>
     <div class="odpoved">
         <div>

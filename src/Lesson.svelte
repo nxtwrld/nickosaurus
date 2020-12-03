@@ -90,13 +90,14 @@ function zkontrolovat(event) {
         // vymazeme odpoved
         odpoved = '';
         // vybrat komponentu
-        dalsiKomponenta();
+        dalsiKomponenta(ucimeSeSlovicka[i]);
         prikazy.sedni();
     });
 
 }
 
-function dalsiKomponenta () {
+function dalsiKomponenta (slovo) {
+
     if (aktivniKomponenta + 1 < komponenty.length)  aktivniKomponenta++;
     else aktivniKomponenta = 0;
 }

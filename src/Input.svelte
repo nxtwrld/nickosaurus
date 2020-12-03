@@ -17,14 +17,18 @@ function zmacknulEnter (event) {
 }
 
 onMount(() => {
+    precti();
+});
+
+function precti() {
     cesky(vyberPrvni(slovicko.mj));
     input.focus();
-});
+}
 
 </script>
 
     <div class="zadani">
-        <p class="slovo">{vyberPrvni(slovicko.mj)} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
+        <p class="slovo" on:click={precti}>{vyberPrvni(slovicko.mj)} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
     </div>
     <div class="odpoved">
         <div>

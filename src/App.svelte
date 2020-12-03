@@ -44,7 +44,7 @@ onMount(() => {
 	<Scena pohled={(lekce) ? 'vyuka' : 'obsah' } />
 
 	<div class="hlavicka {(lekce) ? '-vyuka' : '-obsah' }">
-		<h1 class="logo">Nick-o-saurus</h1>
+		<a class="logo" href="#">Nick-o-saurus</a>
 		<h3>Učíme se s profesorem Nickem!</h3>
 	</div>
 

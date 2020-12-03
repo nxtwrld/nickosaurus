@@ -92,11 +92,15 @@ button:focus {
 }
 
 .hlavicka .logo {
+    display: block;
     background: url('media/nickosaurus.png') no-repeat center;
     background-size: contain;
     color: transparent;
     height: 3.2rem;
+    margin: .5rem;
     transition: height 2s ease-out;
+    pointer-events: all;
+    cursor: pointer;
 }
 
 .hlavicka.-vyuka .logo {
@@ -117,24 +121,24 @@ button:focus {
     display: flex;
     align-items: flex-start;
     justify-content: space-evenly;
-    align-content: center;
     flex-wrap: wrap;
     flex-direction: row;
     top: 55%;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    min-height: 45%;
-    padding: 1vw;
+    height: 45%;
+    padding: 0 1vw 60px 1vw;
     max-width: 500px;
     overflow: auto;
+    pointer-events: all;
     -webkit-overflow-scrolling: touch;
 }
 
 .obsah .seznam a {
     display: block;
     text-align: center;
-    width: 30%;
+    width: 45%;
     height: 10vh;
     margin: 1vh 1%;
     padding: 1.5rem 0 0 0;

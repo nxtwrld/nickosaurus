@@ -45,16 +45,19 @@ function prohod (pole) {
 
 
 onMount(() => {
-    nemecky(vyberPrvni(slovicko.cj));
     odpoved = udelejChybu(vyberPrvni(slovicko.cj));
-    input.focus();
+    precti();
 });
 
+function precti () {
+    nemecky(vyberPrvni(slovicko.cj));
+    input.focus();
+}
 
 </script>
 
 <div class="zadani">
-    <p class="slovo">{vyberPrvni(slovicko.mj)} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
+    <p class="slovo" on:click={precti}>{vyberPrvni(slovicko.mj)} {#if slovicko.poznamka}({slovicko.poznamka}){/if}</p>
 </div>
 <div class="odpoved">
     <p class="instrukce">Oprav:</p>
