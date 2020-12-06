@@ -1,0 +1,20 @@
+{
+    "nazev": "Schulbedarf III",
+    "czNazev": "Školní potřeby III",
+    "slovicka": [
+        { "cj": "Teddy", "mj": ["medvěd", "plyšák"], "clen": "der" },
+        { "cj": "Tische", "mj": "stůl", "clen": "der" },
+        { "cj": "Stuhl", "mj": "židle", "clen": "der" },
+        { "cj": "Block", "mj": "blok", "clen": "der" },
+        { "cj": "Flizstift", "mj": "fixa", "clen": "der" },
+        { "cj": ["Klebstoff", "Kleber", "Klebemittel"], "mj": "lepidlo", "clen": "der" },
+        { "cj": "Kuli", "mj": "propiska", "clen": "der" },
+        { "cj": "Pinsel", "mj": "štětec", "clen": "der" },
+        { "cj": ["Bleistift", "Stift", "Keurtzcompiler"], "mj": "tužka", "clen": "der" },
+        { "cj": "Zirkel", "mj": "kružítko", "clen": "der" },
+        { "cj": ["Füller", "Füllfederhalter"], "mj": "pero", "clen": "der" },
+        { "cj": "Ball", "mj": "míč", "clen": "der" },
+        { "cj": "Spitzer", "mj": "ořezávátko", "clen": "der" },
+        { "cj": ["Radiergummi", "Gummi", "Kaugummi", "Gummiband"], "mj": "guma", "clen": "der" }
+    ]
+}

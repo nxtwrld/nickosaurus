@@ -1,0 +1,13 @@
+{
+    "nazev": "Schulbedarf II",
+    "czNazev": "Školní potřeby II",
+    "slovicka": [
+        { "cj": "Bild", "mj": "obraz", "clen": "das" },
+        { "cj": "Spiel", "mj": "hra", "clen": "das" },
+        { "cj": "Buch", "mj": "kniha", "clen": "das" },
+        { "cj": "Heft", "mj": "sešit", "clen": "das" },
+        { "cj": "Lineal", "mj": "pravítko", "clen": "das" },
+        { "cj": "Auto", "mj": "auto", "clen": "das" }
+
+    ]
+}
