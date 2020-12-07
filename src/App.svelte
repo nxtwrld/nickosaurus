@@ -3,6 +3,12 @@ import { onMount } from 'svelte';
 import Lekce from './Lesson.svelte';
 import Scena from './Scena.svelte';
 import { prikazy, typyPrikazu } from './pes';
+import uzivatel from './uzivatel';
+import { nahodneCislo } from './sdileneFunkce';
+
+export let pocetHvezd = 3;
+
+uzivatel.init();
 
 let lekce = null;
 
@@ -52,14 +58,23 @@ onMount(() => {
 
 	<div class="obsah">
 	{#if lekce}
-		<Lekce lekce={lekce} />
+		<Lekce lekce={lekce} pocetHvezd={pocetHvezd} />
 	{:else}
 		<div class="seznam">
 		{#each Object.keys(seznamLekci) as jazyk}
 			{#each Object.keys(seznamLekci[jazyk]) as lekce}
 			<a href="#{jazyk}/{lekce}" class="tlacitko-lekce">
 				<strong>{seznamLekci[jazyk][lekce].nazev}</strong>
-				{seznamLekci[jazyk][lekce].czNazev}
+				{seznamLekci[jazyk][lekce].czNazev}<br>
+				{#if $uzivatel.lekce[jazyk+'/'+lekce] != undefined}
+					{#each Array(pocetHvezd) as hvezda, poradi}
+						{#if pocetHvezd - $uzivatel.lekce[jazyk+'/'+lekce] >= poradi+1}
+							<span class="zlata">★</span>
+						{:else}
+							<span class="ztracena">☆</span>
+						{/if}
+					{/each}
+				{/if}
 			</a>
 			{/each}
 

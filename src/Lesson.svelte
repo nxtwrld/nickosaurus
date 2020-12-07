@@ -8,7 +8,9 @@ import { nemecky } from './povidac.js';
 import { nahodneCislo, vyberPrvni, porovnejVarianty } from './sdileneFunkce.js';
 import { prikazy } from './pes';
 import { fly } from 'svelte/transition';
+import uzivatel from './uzivatel';
 
+console.log($uzivatel)
 let komponenty = [
 	Input,
     MultipleChoice,
@@ -83,6 +85,13 @@ function zkontrolovat(event) {
 		precteno = nemecky(vyberPrvni(ucimeSeSlovicka[i].cj));
     }
     precteno.then(() => {
+        // ulozime vysledek, je-li lepsi nez drivejsi
+        if (ucimeSeSlovicka.length == 0) {
+            if(!$uzivatel.lekce[lekce] || $uzivatel.lekce[lekce] > chyby) {
+                console.log('Jeste neni nebo mel vic chyb', lekce, $uzivatel.lekce[lekce], 'vs.',chyby);
+                uzivatel.aktualizujLekci(lekce, chyby);
+            }
+        }
         // vymazeme vysledek
         vysledek = null;
         // vybereme nahodne dalsi slovicko
