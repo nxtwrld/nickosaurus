@@ -22,7 +22,9 @@ function readDirectory(directoryPath, result = {}) {
             var lesson = JSON.parse(fs.readFileSync(path.join(directoryPath, file.name)))
             result[file.name.replace('.json', '')] = {
                 nazev: lesson.nazev,
-                czNazev: lesson.czNazev
+                czNazev: lesson.czNazev,
+                poradi: lesson.poradi,
+                blok: lesson.blok
             }
 
         }

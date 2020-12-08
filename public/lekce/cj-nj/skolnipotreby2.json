@@ -1,6 +1,8 @@
 {
     "nazev": "Schulbedarf II",
     "czNazev": "Školní potřeby II",
+    "blok": 1,
+    "poradi": 9,
     "slovicka": [
         { "cj": "Bild", "mj": "obraz", "clen": "das" },
         { "cj": "Spiel", "mj": "hra", "clen": "das" },

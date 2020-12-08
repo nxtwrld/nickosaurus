@@ -2,35 +2,63 @@
   "cj-nj": {
     "barvy": {
       "nazev": "Farben",
-      "czNazev": "Barvy"
+      "czNazev": "Barvy",
+      "poradi": 2,
+      "blok": 1
     },
     "cisla": {
       "nazev": "Zahlen",
-      "czNazev": "Čísla"
+      "czNazev": "Čísla",
+      "poradi": 4,
+      "blok": 1
     },
     "fraze": {
       "nazev": "Phrase",
-      "czNazev": "Fráze"
+      "czNazev": "Fráze",
+      "poradi": 6,
+      "blok": 1
     },
     "pozdravy": {
       "nazev": "Grüße",
-      "czNazev": "Pozdravy"
+      "czNazev": "Pozdravy",
+      "poradi": 3,
+      "blok": 1
     },
     "rodina": {
       "nazev": "Familie",
-      "czNazev": "Rodin"
+      "czNazev": "Rodina",
+      "poradi": 5,
+      "blok": 1
     },
     "skolnipotreby": {
       "nazev": "Schulbedarf",
-      "czNazev": "Školní potřeby"
+      "czNazev": "Školní potřeby",
+      "poradi": 8,
+      "blok": 1
+    },
+    "skolnipotreby2": {
+      "nazev": "Schulbedarf II",
+      "czNazev": "Školní potřeby II",
+      "poradi": 9,
+      "blok": 1
+    },
+    "skolnipotreby3": {
+      "nazev": "Schulbedarf III",
+      "czNazev": "Školní potřeby III",
+      "poradi": 10,
+      "blok": 1
     },
     "zajmena": {
       "nazev": "Pronomen",
-      "czNazev": "Zájmena"
+      "czNazev": "Zájmena",
+      "poradi": 1,
+      "blok": 1
     },
     "zvirata": {
       "nazev": "Tiere",
-      "czNazev": "Zvířata"
+      "czNazev": "Zvířata",
+      "poradi": 7,
+      "blok": 1
     }
   }
 }

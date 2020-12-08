@@ -1,6 +1,8 @@
 {
     "nazev": "Schulbedarf",
     "czNazev": "Školní potřeby",
+    "blok": 1,
+    "poradi": 8,
     "slovicka": [
         { "cj": "Tafel", "mj": "tabule", "clen": "die" },
         { "cj": "Lampe", "mj": "lampa", "clen": "die" },

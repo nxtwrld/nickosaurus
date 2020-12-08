@@ -1,6 +1,8 @@
 {
     "nazev": "Farben",
     "czNazev": "Barvy",
+    "blok": 1,
+    "poradi": 2,
     "slovicka": [
         { "cj": "Farbe", "mj": "barva" },
         { "cj": "Farben", "mj": "barvy" },

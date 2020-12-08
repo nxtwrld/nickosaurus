@@ -1,6 +1,8 @@
 {
     "nazev": "Schulbedarf III",
     "czNazev": "Školní potřeby III",
+    "blok": 1,
+    "poradi": 10,
     "slovicka": [
         { "cj": "Teddy", "mj": ["medvěd", "plyšák"], "clen": "der" },
         { "cj": "Tische", "mj": "stůl", "clen": "der" },

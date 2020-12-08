@@ -1,6 +1,8 @@
 {
     "nazev": "Familie",
-    "czNazev": "Rodin",
+    "czNazev": "Rodina",
+    "blok": 1,
+    "poradi": 5,
     "slovicka": [
         { "cj": "Mutter", "mj": "máma", "clen": "die" },
         { "cj": "Vater", "mj": "táta", "clen": "der" },

@@ -1,6 +1,8 @@
 {
     "nazev": "Tiere",
     "czNazev": "Zvířata",
+    "blok": 1,
+    "poradi": 7,
     "slovicka": [
         { "cj": "Hund", "mj": "pes", "clen": "der" },
         { "cj": "Katze", "mj": "kočka", "clen": "die" },

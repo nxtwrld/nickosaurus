@@ -1,6 +1,8 @@
 {
     "nazev": "Zahlen",
     "czNazev": "Čísla",
+    "blok": 1,
+    "poradi": 4,
     "slovicka": [
         { "cj": "null", "mj": "nula" },
         { "cj": "eins", "mj": "jedna" },

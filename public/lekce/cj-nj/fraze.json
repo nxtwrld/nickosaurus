@@ -1,6 +1,8 @@
 {
     "nazev": "Phrase",
     "czNazev": "Fráze",
+    "blok": 1,
+    "poradi": 6,
     "slovicka": [
         { "cj": ["da", "hier"], "mj": ["tady", "zde"] },
         { "cj": ["hier", "da"], "mj": ["zde", "tady"] },
