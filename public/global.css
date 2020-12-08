@@ -129,7 +129,6 @@ button:focus {
     width: 100%;
     height: 45%;
     padding: 0 1vw 60px 1vw;
-    max-width: 500px;
     overflow: auto;
     pointer-events: all;
     -webkit-overflow-scrolling: touch;
@@ -138,11 +137,11 @@ button:focus {
 .obsah .seznam a {
     display: block;
     text-align: center;
-    width: 45%;
+    width: 30%;
     height: 10vh;
     margin: 1vh 1%;
-    padding: 1.5rem 0 0 0;
-    font-size: 1rem;
+    padding: 1.2rem 0 0 0;
+    font-size: .9rem;
     background-color: rgba(242, 180, 104, 1.00);
     box-shadow: 5px 5px 0 0 rgba(0, 0, 0, .3);
     color: rgba(44, 19, 0, 1.00);
@@ -150,6 +149,14 @@ button:focus {
     border-radius: .5rem;
     pointer-events: all;
     text-decoration: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .obsah .seznam a {
+        width: 45%;
+        padding: .5rem 0 0 0;
+        font-size: .7rem;
+    }
 }
 
 .obsah .seznam a:hover {
@@ -160,7 +167,7 @@ button:focus {
 
 .obsah .seznam a strong {
     display: block;
-    font-size: 1.3rem;
+    font-size: 1.3em;
 }
 
 .lekce {
