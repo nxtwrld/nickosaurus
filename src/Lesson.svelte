@@ -140,7 +140,7 @@ onMount(() => {
 </div>
 
 <div class="otazka" in:fly="{{ x: window.innerWidth, duration: 2000 }}" out:fly="{{ x: 0-window.innerWidth, duration: 2000 }}">
-	{#if ucimeSeSlovicka.length == 0} 
+	{#if ucimeSeSlovicka.length == 0 && naucenaSlovicka.length > 0} 
         <div class="lekce-dokoncena">
             <div class="vysledek">
                 <h2>Hotovo! Všechno už umíš.</h2>

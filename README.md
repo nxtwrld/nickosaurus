@@ -89,3 +89,18 @@ Then, from within your project folder:
 npm run build
 surge public my-project.surge.sh
 ```
+
+
+### Docker
+
+Build a local image:
+
+```bash
+docker build -t svelte/myapp .
+```
+
+And run it:
+
+```bash
+docker run -p 5000:5000 svelte/myapp
+```
