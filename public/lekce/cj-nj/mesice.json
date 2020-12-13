@@ -1,0 +1,65 @@
+{
+    "nazev": "Monaten",
+    "czNazev": "Měsíce",
+    "blok": 3,
+    "poradi": 3,
+    "slovicka": [
+        {
+            "cj": "Januar",
+            "mj": "leden"
+        },{
+            "cj": "Februar",
+            "mj": "únor"
+        },{
+            "cj": "Märtz",
+            "mj": "březen"
+        },{
+            "cj": "April",
+            "mj": "duben"
+        },{
+            "cj": "Mai",
+            "mj": "květen"
+        },{
+            "cj": "Juni",
+            "mj": "červen"
+        },{
+            "cj": "Juli",
+            "mj": "červenec"
+        },{
+            "cj": "August",
+            "mj": "srpen"
+        },{
+            "cj": "September",
+            "mj": "září"
+        },{
+            "cj": "Oktober",
+            "mj": "říjen"
+        },{
+            "cj": "November",
+            "mj": "listopad"
+        },{
+            "cj": "Dezember",
+            "mj": "prosinec"
+        },{
+            "cj": "Weihnachten",
+            "mj": "Vánoce"
+        },{
+            "cj": "Neujahr",
+            "mj": "Nový rok"
+        },{
+            "cj": "Ostern",
+            "mj": "Velikonoce"
+        },
+        {
+            "cj": "monat",
+            "mj": "měsíc",
+            "clen": "der"
+        },
+        {
+            "cj": "monaten",
+            "mj": "měsíce",
+            "clen": "die"
+        }
+
+    ]
+}

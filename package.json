@@ -1,5 +1,5 @@
 {
-    "name": "svelte-app",
+    "name": "nickosaurus",
     "version": "1.0.0",
     "scripts": {
         "build": "node nactiLekce.js && rollup -c",

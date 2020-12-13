@@ -1,0 +1,56 @@
+{
+    "nazev": "Die Tage der Woche",
+    "czNazev": "Dny v týdnu",
+    "blok": 3,
+    "poradi": 3,
+    "slovicka": [
+        {
+            "cj": "Montag",
+            "mj": "Pondělí"
+        },
+        {
+            "cj": "Dienstag",
+            "mj": "Úterý"
+        },{
+            "cj": "Mittwoch",
+            "mj": "Středa"
+        },
+        {
+            "cj": "Donnerstag",
+            "mj": "Čtvrtek"
+        },
+        {
+            "cj": "Freitag",
+            "mj": "Pátek"
+        },
+        {
+            "cj": "Samstag",
+            "mj": "sobota"
+        },
+        {
+            "cj": "Sonntag",
+            "mj": "Neděle"
+        },
+        {
+            "cj": "Woche",
+            "mj": "týden",
+            "clen": "die"
+        },
+        {
+            "cj": "Wochenende",
+            "mj": "víkend",
+            "clen": "die"
+        },
+        {
+            "cj": "Tag",
+            "mj": "den",
+            "clen": "der"
+        },
+        {
+            "cj": "Tage",
+            "mj": "dny",
+            "clen": "die"
+        }
+
+    ]
+}

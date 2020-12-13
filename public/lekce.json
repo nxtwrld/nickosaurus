@@ -12,11 +12,23 @@
       "poradi": 4,
       "blok": 1
     },
+    "dny_v_tydnu": {
+      "nazev": "Die Tage der Woche",
+      "czNazev": "Dny v týdnu",
+      "poradi": 3,
+      "blok": 3
+    },
     "fraze": {
       "nazev": "Phrase",
       "czNazev": "Fráze",
       "poradi": 6,
       "blok": 1
+    },
+    "mesice": {
+      "nazev": "Monaten",
+      "czNazev": "Měsíce",
+      "poradi": 3,
+      "blok": 3
     },
     "pozdravy": {
       "nazev": "Grüße",
