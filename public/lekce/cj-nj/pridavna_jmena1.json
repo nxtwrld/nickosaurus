@@ -1,0 +1,48 @@
+{
+    "nazev": "Adjektive I",
+    "czNazev": "Přídavná jména",
+    "blok": 1,
+    "poradi": 5,
+    "slovicka": [
+        {
+            "cj": "groß",
+            "mj": "velký"
+        }
+        {
+            "cj": "klein",
+            "mj": "malý"
+        }
+        {
+            "cj": "dick",
+            "mj": "tlustý"
+        }
+        {
+            "cj": "dünn",
+            "mj": "hubený"
+        }
+        {
+            "cj": "langsam",
+            "mj": "pomalý"
+        }
+        {
+            "cj": "schnell",
+            "mj": "rychlý"
+        }
+        {
+            "cj": "jung",
+            "mj": "mladý"
+        }
+        {
+            "cj": "alt",
+            "mj": "starý"
+        },
+        {
+            "cj": "schön",
+            "mj": "krásný"
+        },{
+            "cj": "hässlich",
+            "mj": "ošklivý"
+        }
+
+    ]
+}
