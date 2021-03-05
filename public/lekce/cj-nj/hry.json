@@ -1,0 +1,21 @@
+{
+    "nazev": "Spiele",
+    "czNazev": "Hry",
+    "blok": 1,
+    "poradi": 3,
+    "slovicka": [
+        { "cj": "Tennis", "mj": "tenis", "poznamka": "" },
+        { "cj": "Fußball", "mj": "fotbal", "poznamka": "" },
+        { "cj": "Domino", "mj": "domino", "poznamka": "" },
+        { "cj": "Lego", "mj": "lego", "poznamka": "" },
+        { "cj": "Pupen", "mj": "panenky", "poznamka": "" },
+        { "cj": "Karten", "mj": "karty", "poznamka": "" },
+        { "cj": "Flöte", "mj": "flétna", "poznamka": "" },
+        { "cj": "Klavier", "mj": ["klavír","piano"], "poznamka": "" },
+        { "cj": "Gitarre", "mj": "kytara", "poznamka": "" }
+        
+
+
+    
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "nazev": "Verben",
+    "czNazev": "Slovesa",
+    "blok": 1,
+    "poradi": 3,
+    "slovicka": [
+        { "cj": "lachen", "mj": "usmívat se", "poznamka": "" },
+        { "cj": "kochen", "mj": "vařit", "poznamka": "" },
+        { "cj": "turnen", "mj": "cvičit", "poznamka": "" },
+        { "cj": "schreiben", "mj": "psát", "poznamka": "" },
+        { "cj": "schwimmen", "mj": "plavat", "poznamka": "" },
+        { "cj": "fotografieren", "mj": ["fotografovat", "fotit"], "poznamka": "" },
+        { "cj": "tanzen", "mj":[ "tančit","tancovat"], "poznamka": "" },
+        { "cj": "malen", "mj": "malovat", "poznamka": "" },
+        { "cj": "singen", "mj": "zpívat", "poznamka": "" },
+        { "cj": "sitzen", "mj": "sedět", "poznamka": "" },
+        { "cj": "stehen", "mj": "stát", "poznamka": "" },
+        { "cj": "gehen", "mj": "jít", "poznamka": "" },
+        { "cj": "weinen", "mj": ["plakat","brečet"], "poznamka": "" }
+
+    ]
+}

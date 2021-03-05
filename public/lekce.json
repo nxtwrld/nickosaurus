@@ -24,6 +24,12 @@
       "poradi": 6,
       "blok": 1
     },
+    "hry": {
+      "nazev": "Spiele",
+      "czNazev": "Hry",
+      "poradi": 3,
+      "blok": 1
+    },
     "mesice": {
       "nazev": "Monaten",
       "czNazev": "Měsíce",
@@ -64,6 +70,12 @@
       "nazev": "Schulbedarf III",
       "czNazev": "Školní potřeby III",
       "poradi": 10,
+      "blok": 1
+    },
+    "slovesa": {
+      "nazev": "Verben",
+      "czNazev": "Slovesa",
+      "poradi": 3,
       "blok": 1
     },
     "zajmena": {
